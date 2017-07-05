@@ -21,7 +21,7 @@ source "https://rails-assets.org" do
 end
 
 # views
-#gem "active_link_to"                              # отображает ссылку, которую открыл посетитель
+gem "active_link_to"                              # отображает ссылку, которую открыл посетитель
 #gem "inky-rb", require: "inky"                    # преобразует html код для отправки по электронной почте
 gem "metamagic"                                   # плагин для создания метатегов
 gem "simple_form"                                 # плагин для создания понятных инпутов
@@ -38,7 +38,7 @@ gem "google-analytics-rails"                      # для анализа зап
 #gem "interactor"                                  # удобное средство разработки для контроля бизнес логики в приложении
 #gem "kaminari"                                    # пагинатор для отображения определенного количества постов
 #gem "memory_profiler"                             # профилировщик памяти
-#gem "puma"                                        # вебсервер для рейлс
+gem "puma"                                        # вебсервер для рейлс
 gem "pundit"                                      # для создания системы авторизации
 #gem "rack-canonical-host"                         # для определения имени хоста
 #gem "rack-mini-profiler", require: false, git: "https://github.com/MiniProfiler/rack-mini-profiler.git"
@@ -59,7 +59,7 @@ group :test do
   #gem "email_spec"                                # набор шаблонов для проверки правильности отправки электронных писем
   #gem "formulaic"                                 # упрощенное заполнение формы с капибарой
   #gem "guard-rspec"                               # автоматический выполняет команды для rspec тестирования
-  #gem "launchy"                                   # фигня для систематизаций команды в различных системах типо OS x linux and windows
+  #gem "launchy"                                   # фигня для систематизации команды в различных системах типо OS x linux and windows
   #gem "poltergeist"                               # драйвер для Capybara позволяющая отображать тесты капибары без браузера Webkit
   #gem "rspec-its"                                 # представляет its метод тестировщику rspec, очень удобно для тестирования
   gem "shoulda-matchers"                          # предоставляет короткие команды для тестирвания
@@ -70,7 +70,7 @@ end
 group :development, :test do
   gem "rspec-rails", "~> 3.4"                     # самая крутая тестовая игрушка
   #gem "awesome_print"                             # красиво печатает объекты в руби
-  #gem "brakeman", require: false                  # проверка безопасности и уязвимостей рейлс приложения
+  #gem "brakeman", require: false                  # проверка безопасности и уязвимости рейлс приложения
   #gem "bullet"                                    # помощник для убийства N+1 запросов
   #gem "bundler-audit", require: false             # проверка уровня исполнения bundler команд
   gem "byebug"                                    # отладчик для руби
