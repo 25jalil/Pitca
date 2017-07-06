@@ -1,6 +1,13 @@
 class ApplicationController < ActionController::Base
+  include Pundit
+
+  rescue_from Pundit::NotAuthorizedError, with: :user_not_authorized
   protect_from_forgery with: :exception
-  def after_sign_out_path_for(resource_or_scope)
-    new_user_session_path
-  end
+
+  private
+
+    def user_not_authorized
+      flash[:alert] = "Access denied."
+      redirect_to (request.referrer || root_path)
+    end
 end
