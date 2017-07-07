@@ -1,0 +1,7 @@
+- @stores.each do |store|
+  div.store_wrapper
+    h2.title
+      = link_to store.company, store
+    p.date
+      | Created at
+      = store.created_at.strftime(" %B %d %Y")
