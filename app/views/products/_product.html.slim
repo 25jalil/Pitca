@@ -1,0 +1,10 @@
+div.product_clearfix
+  div.product_content
+    p.product.name
+      strong
+        = product.name
+    p.product_body
+      = product.body
+    p.comment_time
+      = time_ago_in_words(product.created_at)
+      |  ago

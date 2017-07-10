@@ -1,5 +1,2 @@
-- flash.each do |type, content|
-  div(class="callout #{type}" data-closable)
-    = content
-    button.close-button(tabindex="0" aria-label="Dismiss alert" type="button" data-close)
-      span aria-hidden="true" &times;
+- flash.each do |name, msg|
+  = content_tag :div, msg, class: ".alert-success"
