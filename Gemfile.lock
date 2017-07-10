@@ -114,6 +114,7 @@ GEM
     nio4r (2.1.0)
     nokogiri (1.8.0)
       mini_portile2 (~> 2.2.0)
+    normalize-rails (4.1.1)
     orm_adapter (0.5.0)
     parallel (1.11.2)
     parser (2.4.0.0)
@@ -264,6 +265,7 @@ DEPENDENCIES
   google-analytics-rails
   listen (~> 3.1.5)
   metamagic
+  normalize-rails
   pg
   puma
   pundit
