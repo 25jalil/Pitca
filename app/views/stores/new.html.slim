@@ -1,6 +1,7 @@
 .store_wrapper#page_wrapper
   h1 New store
   = simple_form_for @store do |f|
-    p= f.input :company
-    p= f.input :address
+    p= f.input :company, required: false
+    p= f.input :address, required: false
     p= f.button :submit
+  = render "products/form"

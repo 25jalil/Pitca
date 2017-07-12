@@ -1,13 +1,19 @@
 class ProductsController < ApplicationController
   def create
-    @store = Store.find(params[:post_id])
-    @product = @store.products.build(params[:comment].permit(:name))
+    @store = Store.find(params[:store_id])
+    @product = @store.products.build(product_params)
     if @product.save
-      redirect_to store_products_path
+      redirect_to root_path
     else
       flash[:error]= "error save"
       redirect_to root_path
     end
+  end
+
+  def new
+  end
+
+  def index
   end
 
   private

@@ -1,0 +1,6 @@
+h1 new product
+= simple_form_for [@store, @store.products.build] do |f|
+  p= f.input :name, required: false
+  p= f.input :description, required: false
+  p= f.input :price, required: false
+  p= f.button :submit
