@@ -1,4 +1,6 @@
 class Product < ApplicationRecord
+  attachment :product_image
+
   belongs_to :store
   has_many   :ordered_products, dependent: :destroy
   has_many :orders, through: :ordered_products

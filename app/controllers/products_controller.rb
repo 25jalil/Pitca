@@ -1,4 +1,5 @@
 class ProductsController < ApplicationController
+
   def create
     @store = Store.find(params[:store_id])
     @product = @store.products.build(product_params)
@@ -23,6 +24,6 @@ class ProductsController < ApplicationController
     end
 
     def product_params
-      params.require(:product).permit(:name, :description, :price)
+      params.require(:product).permit(:name, :description, :price, :product_image)
     end
 end

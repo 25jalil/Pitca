@@ -1,5 +1,4 @@
 source 'https://rubygems.org'
-
 ruby "2.3.4"
 gem 'rails', '~> 5.1.2'
 gem "pg"                                          # для соеденения с базой postgress
@@ -30,6 +29,8 @@ gem "puma"                                        # вебсервер для р
 gem "pundit"                                      # для создания системы авторизации
                                                   # профилировщик скорости отображения html страниц
 gem 'listen', '~> 3.1.5'
+gem 'refile', github: 'refile/refile', require: ['refile/rails', 'refile/simple_form']
+gem "refile-mini_magick"
 
 group :staging, :production do
 end

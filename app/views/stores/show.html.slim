@@ -1,7 +1,4 @@
 .store_wrapper.store_line
-  #store_content
-    h1.title
-      = @store.company
-    p.body
-      = @store.address
+  h1= @store.company
+  p= @store.address
   = render "products/form"
