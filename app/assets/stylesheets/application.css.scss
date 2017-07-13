@@ -19,11 +19,27 @@ html, body {
   font-family: 'Raleway', sans-serif;
 }
 
-h1, h2, h3, h4, h5, h6 {
+h2, h3, h4, h5, h6 {
   font-weight: 500;
+}
+
+h1 {
+  color: #7c795d;
+  font-family: 'Trocchi', serif;
+  font-size: 45px;
+  font-weight: normal;
+  margin: 0;
 }
 
 a {
   text-decoration: none;
   color: inherit;
+}
+
+p {
+  color: #7a7c7f;
+  font-family: 'Raleway',sans-serif;
+  font-size: 18px;
+  font-weight: 500;
+  line-height: 32px;
 }

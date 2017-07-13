@@ -1,7 +1,7 @@
 .store_wrapper#page_wrapper
   h1 New store
   = simple_form_for @store do |f|
-    p= f.input :company, required: false
-    p= f.input :address, required: false
+    p= f.input :company, required: false, label: false, placeholder: "Name company"
+    p= f.input :address, required: false, label: false, placeholder: "Address"
     p= f.button :submit
 

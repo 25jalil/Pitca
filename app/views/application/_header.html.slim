@@ -1,5 +1,7 @@
 .header
   - if user_signed_in?
+    #content
+      = link_to "Stores", stores_path
     .buttons
       button.button
         = link_to "New Store", new_store_path
