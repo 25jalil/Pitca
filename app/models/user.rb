@@ -1,11 +1,9 @@
 class User < ApplicationRecord
   include UsersHelper
-  has_many :ordered_products
-  has_many :stores
+  has_many :orders, dependent: :destroy
 
   validates_format_of :email,:with => Devise::email_regexp
-  validates_associated :ordered_products
-  validates_associated :stores
+  validates_associated :orders
 
   enum role: {seller: 0, user: 1, admin: 2}
   after_initialize :self_default_role, if: :new_record?

@@ -1,4 +1,4 @@
 class Order < ApplicationRecord
-  has_many :ordered_products
-  validates_associated :ordered_products
+  belongs_to :user
+  belongs_to :cart
 end
