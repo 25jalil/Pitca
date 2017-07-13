@@ -1,4 +1,6 @@
-h1.title
-  = @store.company
-p.body
-  = @store.address
+.store_wrapper.store_line
+  h1= @store.company
+  p= @store.address
+
+  = render partial: "products/product", locals: { products: @store_products }
+  = render "products/form"

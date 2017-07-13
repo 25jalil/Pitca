@@ -1,5 +1,5 @@
 class StoresController < ApplicationController
-  before_action :find_store, only: [:show, :edit, :update, :destroy]
+  before_action :find_store, only: [:edit, :update, :destroy]
 
   def index
     @stores = Store.all.order('created_at DESC')
@@ -18,6 +18,8 @@ class StoresController < ApplicationController
   end
 
   def show
+    @store = Store.find(params[:id])
+    @store_products = Product.where(store_id: params[:id])
   end
 
   def edit

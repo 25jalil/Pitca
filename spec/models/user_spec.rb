@@ -11,9 +11,5 @@ RSpec.describe User, :type => :model do
   it "should have valid factory" do
     FactoryGirl.build(:user).should be_valid
   end
-
-  it "should require a username" do
-    FactoryGirl.build(:user, :email => "")(expect(something).to be_valid
-  end
 end
 

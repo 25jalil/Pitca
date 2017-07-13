@@ -10,45 +10,38 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20170707084457) do
+ActiveRecord::Schema.define(version: 20170712074843) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
-  create_table "carts", force: :cascade do |t|
-    t.bigint "user_id"
+  create_table "ordered_products", force: :cascade do |t|
+    t.integer "quantity"
+    t.bigint "store_id"
+    t.bigint "product_id"
     t.bigint "order_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.index ["order_id"], name: "index_carts_on_order_id"
-    t.index ["user_id"], name: "index_carts_on_user_id"
-  end
-
-  create_table "line_items", force: :cascade do |t|
-    t.integer "quantity"
-    t.bigint "store_id"
-    t.bigint "pizza_id"
-    t.bigint "cart_id"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
-    t.index ["cart_id"], name: "index_line_items_on_cart_id"
-    t.index ["pizza_id"], name: "index_line_items_on_pizza_id"
-    t.index ["store_id"], name: "index_line_items_on_store_id"
+    t.index ["order_id"], name: "index_ordered_products_on_order_id"
+    t.index ["product_id"], name: "index_ordered_products_on_product_id"
+    t.index ["store_id"], name: "index_ordered_products_on_store_id"
   end
 
   create_table "orders", force: :cascade do |t|
+    t.boolean "executed", default: false, null: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end
 
-  create_table "pizzas", force: :cascade do |t|
+  create_table "products", force: :cascade do |t|
     t.string "name"
     t.text "description"
     t.float "price"
     t.bigint "store_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.index ["store_id"], name: "index_pizzas_on_store_id"
+    t.string "product_image_id"
+    t.index ["store_id"], name: "index_products_on_store_id"
   end
 
   create_table "stores", force: :cascade do |t|

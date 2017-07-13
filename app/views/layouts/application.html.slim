@@ -17,10 +17,13 @@ html class="no-js" lang="en"
     == analytics_init if GA.tracker
 
   body
-    = render "navigation"
-    = render "messages"
-
-    = yield
+    .header
+      = render "header"
+    .content
+      #sidebar
+        = render "sidebar"
+      #store_content
+        = yield
 
     javascript:
       App.currentUserData = #{{current_user.to_json}};

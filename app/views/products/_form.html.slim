@@ -1,0 +1,7 @@
+h2 New product
+= simple_form_for [@store, @store.products.build] do |f|
+  p= f.input :name, required: false
+  p= f.input :description, required: false
+  p= f.input :price, required: false
+  p= f.input :product_image, as: :attachment, direct: true, presigned: true, label: "Select an image"
+  p= f.button :submit

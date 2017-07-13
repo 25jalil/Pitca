@@ -1,5 +1,4 @@
 source 'https://rubygems.org'
-
 ruby "2.3.4"
 gem 'rails', '~> 5.1.2'
 gem "pg"                                          # для соеденения с базой postgress
@@ -21,6 +20,7 @@ gem "active_link_to"                              # отображает ссы�
 gem "metamagic"                                   # плагин для создания метатегов
 gem "simple_form"                                 # плагин для создания понятных инпутов
 gem "slim"                                        # упрощает код html с помощью иерархической структуры, аналог haml
+gem 'normalize-rails'
 
 # all other gems
 gem "devise"                                      # гем для аутентификаций пользователя
@@ -29,6 +29,8 @@ gem "puma"                                        # вебсервер для р
 gem "pundit"                                      # для создания системы авторизации
                                                   # профилировщик скорости отображения html страниц
 gem 'listen', '~> 3.1.5'
+gem 'refile', github: 'refile/refile', require: ['refile/rails', 'refile/simple_form']
+gem "refile-mini_magick"
 
 group :staging, :production do
 end
