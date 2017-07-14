@@ -8,4 +8,5 @@ class Product < ApplicationRecord
   validates            :description, presence: true, length: { maximum: 300}
   validates            :price, presence:true, numericality: {only_float: true}
   validates_associated :ordered_products
+
 end

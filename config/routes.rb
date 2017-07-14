@@ -5,4 +5,5 @@ Rails.application.routes.draw do
   resources :stores do
     resources :products
   end
+  resources :ordered_products, only: [:create]
 end

@@ -4,7 +4,7 @@ class ProductsController < ApplicationController
     @store = Store.find(params[:store_id])
     @product = @store.products.build(product_params)
     if @product.save
-      render @store
+      redirect_to root_path
     else
       flash[:error]= "error save"
       redirect_to root_path
