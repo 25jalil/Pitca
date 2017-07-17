@@ -27,6 +27,27 @@ td {
 #money {
   color: #ff8080;
   font-family: "Great Vibes";
+<<<<<<< HEAD
+  font-size: 10px;
+  margin: 9px;
+  
+  input[type="submit"] {
+    outline: none;
+    background: transparent;
+    border: 2px solid yellow;
+    padding: .5em 1.5em;
+    font-size: 1.1em;
+    border-radius: 15px;
+    color: yellow;
+    &:hover {
+    border: 3px solid red;
+    color: red;
+    }
+  }
+}
+
+
+=======
   font-size: 25px;
   margin: 9px;
 }
@@ -46,6 +67,7 @@ input[type="submit"] {
   }
 }
 
+>>>>>>> 8b2ebea89aa41a726da4f09a4cca6763c0bea2f2
 /* Cells in even rows (2,4,6...) are one color */
 tr:nth-child(even) td { background: #31BEC3; }
 

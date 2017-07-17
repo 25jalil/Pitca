@@ -1,7 +1,27 @@
 class OrderedProductsController < ApplicationController
-  before_action :set_cart, only: [:create]
-
+    
   def create
+<<<<<<< HEAD
+    @product = Product.find(params[:product_id])
+    session[:product_id] = @product.id
+    session[:product_name] = @product.name
+    session[:product_price] = @product.price
+    session[:product_quantity] = 1
+    redirect_to store_path(session[:store_id])
+  end
+
+  def show
+  end
+
+  def destroy
+    session[:product_id] = nil
+    session[:product_name] = nil
+    session[:product_price] = nil
+    session[:product_quantity] = nil
+    redirect_to stores_path
+  end
+
+=======
     product = Product.find(params[:product_id])
     store = Store.find(params[:store_id])
     ordered_product = OrderedProduct.find_by(product_id: product.id)
@@ -34,6 +54,7 @@ class OrderedProductsController < ApplicationController
       @cart = Cart.create
       session[:cart_id] = @cart.id
     end
+>>>>>>> 8b2ebea89aa41a726da4f09a4cca6763c0bea2f2
 end
 
 

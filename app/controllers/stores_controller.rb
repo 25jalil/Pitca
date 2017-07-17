@@ -19,6 +19,15 @@ class StoresController < ApplicationController
   def show
     @store = Store.find(params[:id])
     @store_products = Product.where(store_id: params[:id])
+    if session[:url] == nil 
+       session[:url] = request.url
+    elsif session[:url] != request.url
+      session[:url] = request.url
+      session[:product_id] = nil
+      session[:product_name] = nil
+      session[:product_price] = nil
+      session[:product_quantity] = nil
+    end
   end
 
   def edit

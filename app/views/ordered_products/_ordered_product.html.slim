@@ -1,0 +1,10 @@
+- unless session[:product_id] == nil	
+	- total_price = session[:product_quantity] * session[:product_price]
+
+	table
+	  tr
+	    td = session[:product_quantity] 
+	    td = session[:product_name]
+	    td = total_price
+	#money
+	  = button_to "Clear cart", ordered_product_path(session[:product_id]), method: :delete
