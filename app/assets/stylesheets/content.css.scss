@@ -15,33 +15,6 @@
     top: 4px;
     border-radius: 6px;
   }
-  ul {
-    list-style: none;
-    text-align: right;
-    padding-right: 3em;
-    .category {
-      font-weight: 700;
-      font-size: 1.1 em;
-      text-transform: uppercase;
-      color: #33acb7;
-    }
-    li {
-      padding: .5em 0;
-      a {
-        color: #9eafba;
-        text-decoration: none;
-        transition: all .4s ease;
-        &:hover {
-          color: #33acb7;
-        }
-      }
-    }
-    .active {
-      a {
-        color: #33acb7;
-      }
-    }
-  }
 }
 #store_content {
   padding-left: 100px;
@@ -55,10 +28,8 @@
   background: transparent;
   border: 3px solid #29979B;
   padding: .5em 1.5em;
-  border-radius: 1.5em;
-  a {
-    color: #E523C4;
-  }
+  border-radius: 2px;
+  color: #E523C4;
 
   &:hover {
     border: 3px solid #E55D23;

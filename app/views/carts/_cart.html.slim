@@ -1,0 +1,4 @@
+-cart = Cart.find(session[:cart_id])
+ul
+- cart.ordered_products.each do |ordered_product|
+  li = ordered_product.product.name

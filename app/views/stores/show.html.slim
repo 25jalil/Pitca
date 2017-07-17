@@ -1,6 +1,12 @@
 .store_wrapper.store_line
-  h1= @store.company
-  p= @store.address
+  h1
+    |Store
+    '
+    = @store.company
+  p
+    |Address:
+    '
+    = @store.address
 
-  = render partial: "products/product", locals: { products: @store_products }
+  = render partial: "products/product", locals: { products: @store_products, store: @store }
   = render "products/form"

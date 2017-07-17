@@ -10,6 +10,6 @@
 .store_wrapper#page_wrapper
 
   = simple_form_for @store do |f|
-    p= f.input :company, required: false
-    p= f.input :address, required: false
-    p= f.button :submit
+    = f.input :company, required: false
+    = f.input :address, required: false
+    = f.button :submit
