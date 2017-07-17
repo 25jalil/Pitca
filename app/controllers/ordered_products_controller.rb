@@ -14,10 +14,17 @@ class OrderedProductsController < ApplicationController
       if product.save
         redirect_to store
       else
-        falsh[:eroor] = "Notice"
+        flash[:eroor] = "Notice"
         redirect_to store
       end
     end
+  end
+
+  def destroy
+    @cart = Cart.find(params[:id])
+    @cart.destroy
+    session[:cart_id] = nil
+    redirect_to stores_path
   end
 
   private

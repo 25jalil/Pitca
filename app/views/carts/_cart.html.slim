@@ -1,4 +1,16 @@
 -cart = Cart.find(session[:cart_id])
-ul
-- cart.ordered_products.each do |ordered_product|
-  li = ordered_product.product.name
+  - total_price = 0
+  table
+    - cart.ordered_products.each do |ordered_product|
+      - ordered_product_price = ordered_product.product.price * ordered_product.quantity
+      - total_price += ordered_product_price
+      tr
+        td = ordered_product.quantity
+        td = ordered_product.product.name
+        td = ordered_product_price
+  #money
+    |Total:
+    '
+    = total_price
+  = button_to "Clear cart", ordered_product_path(cart), method: :delete
+
