@@ -10,41 +10,15 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20170713145702) do
+ActiveRecord::Schema.define(version: 20170712074843) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
-  create_table "carts", force: :cascade do |t|
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
-  end
-
-  create_table "ordered_products", force: :cascade do |t|
-    t.integer "quantity"
-    t.bigint "product_id"
-    t.bigint "store_id"
-    t.bigint "cart_id"
-    t.bigint "user_id"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
-    t.index ["cart_id"], name: "index_ordered_products_on_cart_id"
-    t.index ["product_id"], name: "index_ordered_products_on_product_id"
-    t.index ["store_id"], name: "index_ordered_products_on_store_id"
-    t.index ["user_id"], name: "index_ordered_products_on_user_id"
-  end
-
-  create_table "orders", force: :cascade do |t|
-    t.boolean "executed", default: false, null: false
-    t.bigint "cart_id"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
-    t.index ["cart_id"], name: "index_orders_on_cart_id"
-  end
-
   create_table "products", force: :cascade do |t|
     t.string "name"
     t.text "description"
+    t.integer "quantity", default: 1, null: false
     t.float "price"
     t.bigint "store_id"
     t.datetime "created_at", null: false

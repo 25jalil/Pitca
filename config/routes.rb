@@ -3,8 +3,8 @@ Rails.application.routes.draw do
   devise_for :users
   resources  :users
   resources  :stores do
-    resources :products
+    resources :products  	
   end
-  resources :ordered_products, only: [:create]
-  resources :carts
+  post 'virtual_cart', to: 'products#virtual_cart'
+  get 'destroy_cart', to: 'products#destroy_cart'
 end

@@ -1,0 +1,15 @@
+- total_price = 0
+table
+  - session[:cart].each do |product|
+	- price_product = product[2] * product[3] 
+	- total_price += price_product
+	tr  
+    td = product[1]  
+    td = product[3]  
+    td = price_product  
+.floatlf
+  #money
+    |Total:
+    '
+    = total_price
+    = button_to "Clear cart", destroy_cart_path
