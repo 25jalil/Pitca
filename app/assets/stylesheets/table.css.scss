@@ -12,38 +12,17 @@ table {
 }
 
 a {
-      color: white;
-    }
-td, th {
-    border: 1px solid yellow;
-    height: 30px;
+  color: white;
 }
 
+td, th {
+  border: 1px solid yellow;
+  height: 30px;
+}
 
 td {
-    background: #FAFAFA;
-    text-align: left;
-}
-#money {
-  color: #ff8080;
-  font-family: "Great Vibes";
-  font-size: 25px;
-  margin: 9px;
-}
-
-input[type="submit"] {
-  outline: none;
-  background: transparent;
-  border: 2px solid yellow;
-  padding: .5em 1.5em;
-  font-size: 1.1em;
-  border-radius: 15px;
-  color: yellow;
-  margin-left: 9px;
-  &:hover {
-    border: 3px solid red;
-    color: red;
-  }
+  background: #FAFAFA;
+  text-align: left;
 }
 
 /* Cells in even rows (2,4,6...) are one color */
@@ -52,4 +31,28 @@ tr:nth-child(even) td { background: #31BEC3; }
 /* Cells in odd rows (1,3,5...) are another (excludes header cells)  */
 tr:nth-child(odd) td { background: #21a79d; }
 
+.floatlf {
+  float: right;
+  #money {
+    color: #ff8080;
+    font-family: "Great Vibes";
+    font-size: 25px;
+    margin: 9px;
 
+    input[type="submit"] {
+    margin-top: 9px;
+    margin-left: 23px;
+    outline: none;
+    background: transparent;
+    border: 2px solid yellow;
+    padding: .4em;
+    font-size: 25px;
+    border-radius: 15px;
+    color: yellow;
+      &:hover {
+        border: 2px solid #ff8080;
+        color: #ff8080;
+      }
+    }
+  }
+}
