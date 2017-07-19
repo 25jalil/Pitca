@@ -12,7 +12,6 @@ class ProductsController < ApplicationController
   end
 
   def virtual_cart
-    
     if @product = Product.find_by(id: params[:product_id])
       if session[:cart].nil?
         session[:cart] ||= []
