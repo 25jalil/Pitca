@@ -1,0 +1,31 @@
+table {
+    color: #333;
+    font-family: Helvetica, Arial, sans-serif;
+    width: 1000px;
+    border-collapse: collapse;
+    border-spacing: 0;
+    background-color:#ff0;
+    border-radius: 25px;
+    color: yellow;
+
+}
+
+a {
+  color: #ff8080;
+}
+
+td, th {
+  border: 1px solid green;
+  height: 30px;
+}
+
+td {
+  background: green;
+  text-align: center;
+}
+
+tr:nth-child(even) td { background: #75a3a3; }
+
+tr:nth-child(odd) td { background: #85adad; }
+
+
