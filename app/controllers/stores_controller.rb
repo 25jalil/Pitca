@@ -39,4 +39,8 @@ class StoresController < ApplicationController
     def store_params
       params.require(:store).permit(:company, :address)
     end
+
+    def delete_session
+      session[:cart] = nil
+    end
 end

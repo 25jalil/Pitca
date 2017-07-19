@@ -1,6 +1,5 @@
 class StaticPagesController < ApplicationController
 
-  def root
-    session[:cart] = nil	
+  def root	
   end
 end

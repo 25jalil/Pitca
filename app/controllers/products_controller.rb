@@ -16,18 +16,18 @@ class ProductsController < ApplicationController
     if @product = Product.find_by(id: params[:product_id])
       if session[:cart].nil?
         session[:cart] ||= []
-        product = [@product.id, @product.name, @product.price, 1] 
+        product = [params[:store_id].to_i, @product.id, @product.name, @product.price, 1] 
         session[:cart] << product
       else
         check = true
         session[:cart].map do |product| 
-          if product[0] == @product.id
+          if product[1] == @product.id
             check = false
-            product[3] += 1
+            product[4] += 1
           end
         end
         if check == true
-          product = [@product.id, @product.name, @product.price, 1] 
+          product = [params[:store_id].to_i, @product.id, @product.name, @product.price, 1] 
           session[:cart] << product
         end  
       end
@@ -36,12 +36,14 @@ class ProductsController < ApplicationController
   end
 
   def destroy_cart
+    path = session[:cart][-1][0]
     session[:cart] = nil
+    redirect_to store_path(path)
   end
 
   private
 
     def product_params
-      params.require(:product).permit(:name, :description, :price, :product_image, :product_id)
+      params.require(:product).permit(:name, :description, :price, :product_image)
     end
 end
