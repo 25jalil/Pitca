@@ -3,13 +3,14 @@ table
   - session[:cart].each do |product|
 	- price_product = product[3] * product[4] 
 	- total_price += price_product
-	tr  
-    td = product[2]  
-    td = product[4]  
-    td = price_product  
+  	tr  
+      td = product[2]  
+      td = product[4]  
+      td = price_product  
 .floatlf
   #money
     |Total:
     '
     = total_price
     = button_to "Clear cart", destroy_cart_path, method: :get
+    = button_to "Order", order_path, method: :get

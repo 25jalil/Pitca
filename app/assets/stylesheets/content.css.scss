@@ -15,6 +15,67 @@
     top: 4px;
     border-radius: 6px;
   }
+
+  table {
+    font-family: Helvetica, Arial, sans-serif;
+    border-collapse: separate; 
+    width: 200px;
+    border-spacing: 0;
+    margin-left: 5px;
+    color: yellow;
+  }
+
+  a {
+    color: white;
+  }
+
+  tr:first-child td:first-child { border-top-left-radius: 10px; }
+  tr:first-child td:last-child { border-top-right-radius: 10px; }
+  tr:last-child td:first-child { border-bottom-left-radius: 10px; }
+  tr:last-child td:last-child { border-bottom-right-radius: 10px; }
+
+  td, th {
+    border: 0.3px solid #29979B;
+    height: 30px;
+    border: solid 1px;
+  }
+
+  td {
+    background: #FAFAFA;
+    text-align: left;
+  }
+
+  /* Cells in even rows (2,4,6...) are one color */
+  tr:nth-child(even) td { background: #75a3a3; }
+
+  /* Cells in odd rows (1,3,5...) are another (excludes header cells)  */
+  tr:nth-child(odd) td { background: #21a79d; }
+
+  .floatlf {
+    float: left;
+    #money {
+      color: #ff8080;
+      font-family: "Great Vibes";
+      font-size: 25px;
+      margin: 9px;
+
+      input[type="submit"] {
+      margin-top: 9px;
+      outline: none;
+      background: transparent;
+      border: 2px solid yellow;
+      padding: .4em;
+      font-size: 25px;
+      border-radius: 15px;
+      color: yellow;
+        &:hover {
+          border: 2px solid #ff8080;
+          color: #ff8080;
+        }
+      }
+    }
+  }
+
 }
 #store_content {
   padding-left: 100px;
