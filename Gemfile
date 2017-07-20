@@ -21,6 +21,7 @@ gem "metamagic"                                   # плагин для созд
 gem "simple_form"                                 # плагин для создания понятных инпутов
 gem "slim"                                        # упрощает код html с помощью иерархической структуры, аналог haml
 gem 'normalize-rails'
+gem 'enum_help'
 
 # all other gems
 gem "devise"                                      # гем для аутентификаций пользователя

@@ -15,4 +15,10 @@ class OrdersController < ApplicationController
 
   def show
   end
+
+  def order_user
+    @orders = Order.where(user_id: current_user.id)
+    render "show"
+  end
+
 end

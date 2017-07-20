@@ -4,7 +4,7 @@ class User < ApplicationRecord
 
   validates_format_of :email,:with => Devise::email_regexp
 
-  enum role: {seller: 0, user: 1, admin: 2}
+  enum role: {user: 0, seller: 1, admin: 2}
   after_initialize :self_default_role, if: :new_record?
 
   devise :database_authenticatable,
