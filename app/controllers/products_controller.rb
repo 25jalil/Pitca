@@ -37,7 +37,7 @@ class ProductsController < ApplicationController
   def destroy_cart
     path = session[:cart][-1][0]
     session[:cart] = nil
-    redirect_to store_path(path)
+    redirect_to request.referrer 
   end
 
   private
