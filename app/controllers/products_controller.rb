@@ -1,8 +1,10 @@
 class ProductsController < ApplicationController
-
+  before_action :authenticate_user!
+  
   def create
     @store = Store.find(params[:store_id])
     @product = @store.products.build(product_params)
+    authorize @product
     if @product.save
       redirect_to @store
     else
@@ -11,7 +13,7 @@ class ProductsController < ApplicationController
     end
   end
 
-  def virtual_cart
+  def session_cart
     if @product = Product.find_by(id: params[:product_id])
       if session[:cart].nil?
         session[:cart] ||= []

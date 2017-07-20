@@ -13,4 +13,4 @@
         = product.price
       br
       #button
-        = button_to "add to cart", virtual_cart_path(product_id: product, store_id: @store)
+        = button_to "add to cart", session_cart_path(product_id: product, store_id: @store)

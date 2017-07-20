@@ -3,8 +3,14 @@
     #content
       = link_to "Stores", stores_path
     .buttons
+      - if current_user.admin?
+          button.button
+            = link_to "Users", users_path
       button.button
-        = link_to "New Store", new_store_path
+        = link_to "My orders", order_user_path
+      - if current_user.admin? or current_user.seller?
+        button.button
+          = link_to "New Store", new_store_path
       button.button
         = link_to "Edit profile", edit_user_registration_path
       button.button

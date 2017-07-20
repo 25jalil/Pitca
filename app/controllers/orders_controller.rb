@@ -1,4 +1,6 @@
 class OrdersController < ApplicationController
+  before_action :authenticate_user!
+  
   def create
     if session[:cart].nil?
       @orders = Order.where(user_id: current_user.id)
@@ -20,5 +22,4 @@ class OrdersController < ApplicationController
     @orders = Order.where(user_id: current_user.id)
     render "show"
   end
-
 end

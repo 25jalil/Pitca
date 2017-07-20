@@ -1,9 +1,12 @@
 #message {
   padding-left: 100px;
   margin-left: 130px;
-  margin-top: -30px;
+  margin-top: -50px;
+  width: 100%;
+  height: 40px;
   position: fixed;
-  text-align: center;
+  text-align: left;
+  background-color: #B0C4DE;
 
   .alert-error {
     background-color: #f2dede;
@@ -22,7 +25,7 @@
   .alert-success {
     background-color: #dff0d8;
     border-color: #d6e9c6;
-    color: #468847;
+    color: red;
     text-align: center;
    }
 

@@ -1,6 +1,6 @@
 class User < ApplicationRecord
   include UsersHelper
-  has_many :orders
+  has_many :orders, dependent: :destroy
 
   validates_format_of :email,:with => Devise::email_regexp
 
