@@ -1,11 +1,11 @@
 - total_price = 0
 table
   - session[:cart].each do |product|
-	- price_product = product[3] * product[4] 
+	- price_product = product["product_price"] * product["product_quantity"] 
 	- total_price += price_product
   	tr  
-      td = product[2]  
-      td = product[4]  
+      td = product["product_name"]  
+      td = product["product_quantity"]  
       td = price_product  
 .floatlf
   #money

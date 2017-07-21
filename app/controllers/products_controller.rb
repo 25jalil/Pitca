@@ -14,30 +14,29 @@ class ProductsController < ApplicationController
   end
 
   def session_cart
-    if @product = Product.find_by(id: params[:product_id])
+    if @product = Product.find(params[:product_id])
       if session[:cart].nil?
         session[:cart] ||= []
-        product = [params[:store_id].to_i, @product.id, @product.name, @product.price, 1] 
+        product = {product_id: @product.id, product_name: @product.name, product_price: @product.price, product_quantity: 1} 
         session[:cart] << product
       else
-        check = true
+        var = true
         session[:cart].map do |product| 
-          if product[1] == @product.id
-            check = false
-            product[4] += 1
+          if product["product_id"] == @product.id
+            product["product_quantity"] += 1
+            var = false
           end
         end
-        if check == true
-          product = [params[:store_id].to_i, @product.id, @product.name, @product.price, 1] 
+        if var == true
+          product = {product_id: @product.id, product_name: @product.name, product_price: @product.price, product_quantity: 1} 
           session[:cart] << product
         end  
       end
     end
-    redirect_to store_path(params[:store_id])
+    redirect_to request.referrer
   end
 
   def destroy_cart
-    path = session[:cart][-1][0]
     session[:cart] = nil
     redirect_to request.referrer 
   end

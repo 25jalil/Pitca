@@ -17,7 +17,6 @@ ActiveRecord::Schema.define(version: 20170719101326) do
 
   create_table "orders", force: :cascade do |t|
     t.bigint "user_id"
-    t.integer "store_id"
     t.integer "product_id"
     t.string "product_name"
     t.float "product_price"

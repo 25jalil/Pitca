@@ -7,7 +7,7 @@
           button.button
             = link_to "Users", users_path
       button.button
-        = link_to "My orders", order_user_path
+        = link_to "My orders", order_path(current_user.id)
       - if current_user.admin? or current_user.seller?
         button.button
           = link_to "New Store", new_store_path
