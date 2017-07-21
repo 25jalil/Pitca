@@ -9,5 +9,4 @@ Rails.application.routes.draw do
   resources :orders, only: [:create, :show]
   post 'session_cart', to: 'products#session_cart'
   get 'destroy_cart', to: 'products#destroy_cart'
-  get 'order_user', to: 'orders#order_user'
 end

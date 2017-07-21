@@ -27,8 +27,10 @@ gem 'enum_help'
 gem "devise"                                      # гем для аутентификаций пользователя
 gem "google-analytics-rails"                      # для анализа запросов на вебсайт
 gem "puma"                                        # вебсервер для рейлс
-gem "pundit"                                      # для создания системы авторизации
-                                                  # профилировщик скорости отображения html страниц
+gem "pundit"                                      # для создания системы авторизации                                                 
+gem "decent_decoration"                           
+gem "decent_exposure" 
+
 gem 'listen', '~> 3.1.5'
 gem 'refile', github: 'refile/refile', require: ['refile/rails', 'refile/simple_form']
 gem "refile-mini_magick"
