@@ -1,6 +1,9 @@
 class OrdersController < ApplicationController
   before_action :authenticate_user!
   
+  expose :orders, ->{current_user.orders}
+  expose :order    
+  
   def create
     if session[:cart].nil?
       redirect_to request.referrer, notice: "Cart empty"
@@ -10,11 +13,9 @@ class OrdersController < ApplicationController
       end
       session[:cart] = nil
     end  
-      @orders = current_user.orders
       render "show"
   end
 
   def show
-    @orders = current_user.orders
   end
 end

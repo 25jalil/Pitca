@@ -1,15 +1,15 @@
-- if @store.errors.any?
+- if store.errors.any?
       #errors
         h2
-          = pluralize(@store.errors.count, "error")
+          = pluralize(store.errors.count, "error")
           |  prohibited this post from being saved:
         ul
-          - @store.errors.full_messages.each do |msg|
+          - store.errors.full_messages.each do |msg|
             li
               = msg
 .store_wrapper#page_wrapper
 
-  = simple_form_for @store do |f|
+  = simple_form_for store do |f|
     = f.input :company, required: false
     = f.input :address, required: false
     = f.button :submit

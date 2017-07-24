@@ -2,11 +2,11 @@
   h1
     |Store
     '
-    = @store.company
+    = store.company
   p
     |Address:
     '
-    = @store.address
+    = store.address
 
-  = render partial: "products/product", locals: { products: @store_products, store: @store }
+  = render partial: "products/product", locals: { products: store_products, store: store }
   = render "products/form"

@@ -1,4 +1,4 @@
-= simple_form_for [@store, @store.products.build] do |f|
+= simple_form_for [store, store.products.build] do |f|
   = f.input :name, required: false, label: false, placeholder: "Create name to new product"
   = f.input :description, required: false, label: false, placeholder: "Description to new product"
   br

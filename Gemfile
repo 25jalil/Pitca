@@ -28,8 +28,9 @@ gem "devise"                                      # гем для аутенти
 gem "google-analytics-rails"                      # для анализа запросов на вебсайт
 gem "puma"                                        # вебсервер для рейлс
 gem "pundit"                                      # для создания системы авторизации                                                 
+gem "draper" 
 gem "decent_decoration"                           
-gem "decent_exposure" 
+gem "decent_exposure"
 
 gem 'listen', '~> 3.1.5'
 gem 'refile', github: 'refile/refile', require: ['refile/rails', 'refile/simple_form']

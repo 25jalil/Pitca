@@ -1,6 +1,6 @@
 .order
 	table
-	  - @orders.each do |order|
+	  - orders.each do |order|
 		  - order_price = order.product_price * order.product_quantity
 		  - if order.rendition == false
 		  	- order_rendition = "Not executed"

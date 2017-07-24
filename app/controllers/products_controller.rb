@@ -1,12 +1,13 @@
 class ProductsController < ApplicationController
   before_action :authenticate_user!
-  
+  expose :store
+  expose :products, ->{ store.products }
+  expose :product
+    
   def create
-    @store = Store.find(params[:store_id])
-    @product = @store.products.build(product_params)
-    authorize @product
-    if @product.save
-      redirect_to @store
+    authorize product
+    if product.save
+      redirect_to store
     else
       flash[:error]= "error save"
       redirect_to root_path
@@ -14,22 +15,22 @@ class ProductsController < ApplicationController
   end
 
   def session_cart
-    if @product = Product.find(params[:product_id])
+    if product 
       if session[:cart].nil?
         session[:cart] ||= []
-        product = {product_id: @product.id, product_name: @product.name, product_price: @product.price, product_quantity: 1} 
-        session[:cart] << product
+        product1 = {product_id: product.id, product_name: product.name, product_price: product.price, product_quantity: 1} 
+        session[:cart] << product1
       else
         var = true
-        session[:cart].map do |product| 
-          if product["product_id"] == @product.id
-            product["product_quantity"] += 1
+        session[:cart].map do |product2| 
+          if product2["product_id"] == product.id
+            product2["product_quantity"] += 1
             var = false
           end
         end
         if var == true
-          product = {product_id: @product.id, product_name: @product.name, product_price: @product.price, product_quantity: 1} 
-          session[:cart] << product
+          product1 = {product_id: product.id, product_name: product.name, product_price: product.price, product_quantity: 1} 
+          session[:cart] << product1
         end  
       end
     end
