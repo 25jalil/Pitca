@@ -1,8 +1,7 @@
 class OrdersController < ApplicationController
   before_action :authenticate_user!
   
-  expose :orders, ->{current_user.orders}
-  expose :order    
+  expose_decorated :orders, ->{current_user.orders}
   
   def create
     if session[:cart].nil?

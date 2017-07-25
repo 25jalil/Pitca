@@ -1,9 +1,10 @@
 class ProductsController < ApplicationController
   before_action :authenticate_user!
+
   expose :store
   expose :products, ->{ store.products }
   expose :product
-    
+  
   def create
     authorize product
     if product.save

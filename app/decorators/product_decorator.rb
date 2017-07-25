@@ -1,0 +1,2 @@
+class ProductDecorator < ApplicationDecorator
+end

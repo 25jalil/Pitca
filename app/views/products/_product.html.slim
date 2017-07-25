@@ -1,6 +1,6 @@
 - products.each do |product|
   .margin_content
-    = image_tag attachment_url(product, :product_image, :fill, 300, 300)
+    = image(product)
     .products
       #name
         = product.name
