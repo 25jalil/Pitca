@@ -1,1 +1,10 @@
 h1 Привет root page!
+- if !user_signed_in? and Rails.env.development?
+	p
+    | For developer. Please add this line to ~/.bashrc file:
+	p
+	  | export SENDMAIL_PASSWORD=##################
+	p
+	  | export SENDMAIL_USERNAME=##########@gmail.com
+	p
+	  | export MAIL_HOST=localhost:3000
