@@ -1,0 +1,34 @@
+doctype html
+html
+  head
+    meta[content="text/html; charset=UTF-8" http-equiv="Content-Type"]
+  body
+    h1
+      | Welcome to pitca store, 
+      = @email
+    p
+      |  To login to the site, just follow this link: 
+      = @url  
+    p
+      | Thanks for order and have a great day!
+    p 
+      | You order:
+    table
+      tr 
+        td 
+          |Product name: 
+          '
+          = @order.product_name
+        td 
+          |Price:
+          '
+          = product_price = @order.product_price
+        td 
+          |Quantity product:
+          '
+          = product_quantity = @order.product_quantity
+        td 
+          |Total price to order:
+          '
+          = product_price * product_quantity
+  
