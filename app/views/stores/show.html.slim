@@ -9,4 +9,6 @@
     = store.address
 
   = render partial: "products/product", locals: { products: store_products, store: store }
-  = render "products/form"
+  - if current_user.admin? or store_owner?(store)
+    = render "products/form"
+

@@ -14,3 +14,6 @@
       br
       #button
         = button_to "add to cart", session_cart_path(product_id: product)
+        br
+        - if current_user.admin? or store_owner?(store)
+          = button_to "Delete product", store_product_path(store, product), method: :delete

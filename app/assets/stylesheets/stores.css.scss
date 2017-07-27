@@ -1,7 +1,29 @@
 .store_wrapper {
   .store_line {
     padding: 3em;
-    border-bottom: 1px solid #d6dce0;
+    a {
+     color: #00cccc;
+     &:hover {
+        background-color: white;
+        color: #33acb7;
+      } 
+    }
+    input[type="submit"] {
+      outline: none;
+      background: transparent;
+      border: 3px solid #00cccc;
+      padding: 5px;
+      left: 2px;
+      font-size: 18px;
+      color: #00cccc;
+      border-radius: 15px;
+
+      :hover {
+        border: 3px solid #33acb7;
+        color: #33acb7;
+      }
+    }
+    
   }
   .margin_content {
     height: 327px;

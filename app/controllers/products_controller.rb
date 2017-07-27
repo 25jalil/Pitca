@@ -1,10 +1,9 @@
 class ProductsController < ApplicationController
   before_action :authenticate_user!
-
+  
   expose :store
-  expose :products, ->{ store.products }
   expose :product_create, ->{ store.products.build(product_params) }
-  expose :product
+  expose :product, ->{Product.find(params[:id])}
   
   def create
     authorize Product
@@ -16,33 +15,15 @@ class ProductsController < ApplicationController
     end
   end
 
-  def session_cart
-    if product 
-      if session[:cart].nil?
-        session[:cart] ||= []
-        product1 = {product_id: product.id, product_name: product.name, product_price: product.price, product_quantity: 1} 
-        session[:cart] << product1
-      else
-        var = true
-        session[:cart].map do |product2| 
-          if product2["product_id"] == product.id
-            product2["product_quantity"] += 1
-            var = false
-          end
-        end
-        if var == true
-          product1 = {product_id: product.id, product_name: product.name, product_price: product.price, product_quantity: 1} 
-          session[:cart] << product1
-        end  
-      end
+  def destroy
+    authorize Product
+    if product.destroy
+      redirect_to store_path(store), notice: "Product deleted!"
+    else
+      redirect_to store_path(store), notice: "Unable to delete product!"
     end
-    redirect_to request.referrer
   end
 
-  def destroy_cart
-    session[:cart] = nil
-    redirect_to request.referrer 
-  end
 
   private
 

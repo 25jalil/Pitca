@@ -1,21 +1,23 @@
 class StoresController < ApplicationController
+  include StoresHelper
   before_action :find_store, only: [:edit, :update, :destroy]
   before_action :authenticate_user!
   
   expose :stores, ->{ Store.all.order('created_at DESC') }
-  expose :store_products, ->{store.products}
+  expose :store_products, ->{ store.products }
   expose :store
-
+  expose :store_create, ->{ current_user.stores.build(store_params) }
+  
   def index
   end
 
   def new
-    authorize store
+    authorize Store
   end
 
   def create
-    authorize store
-    if store.save
+    authorize Store
+    if store_create.save
       redirect_to store, notice: "Successfully"
     else
       render 'new'

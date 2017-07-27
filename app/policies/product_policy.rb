@@ -9,4 +9,8 @@ class ProductPolicy
   def create?
     @current_user.admin? || @current_user.seller?  
   end
+
+  def destroy?
+    @current_user.admin? || @current_user.seller?  
+  end
 end
