@@ -7,6 +7,6 @@ Rails.application.routes.draw do
     resources :products  	
   end
   resources :orders, only: [:create, :show]
-  post 'session_cart', to: 'products#session_cart'
-  get 'destroy_cart', to: 'products#destroy_cart'
+  post 'session_cart', to: 'carts#session_cart'
+  get 'destroy_cart', to: 'carts#destroy_cart'
 end
