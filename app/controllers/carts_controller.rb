@@ -1,16 +1,24 @@
 class CartsController < ApplicationController
   include CartHelper
   before_action :authenticate_user!
+  before_action :initialize_cart, only: [:create]
   expose :product
 
-  def session_cart
+  def create
+    return unless product
     result = cart_create(session[:cart], product)
     session[:cart] = result
-    redirect_to request.referrer
+    redirect_to request.referrer || root_path
   end
 
-  def destroy_cart
+  def destroy
     session[:cart] = nil
-    redirect_to request.referrer 
+    redirect_to request.referrer || root_path 
   end
+
+  private 
+
+    def initialize_cart
+      session[:cart] ||= {} 
+    end
 end

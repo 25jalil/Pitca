@@ -9,7 +9,5 @@ Rails.application.routes.draw do
   end
 
   resources :orders, only: [:create, :show]
-
-  post 'session_cart', to: 'carts#session_cart'
-  get 'destroy_cart',  to: 'carts#destroy_cart'
+  resources :carts, only: [:create, :destroy]
 end

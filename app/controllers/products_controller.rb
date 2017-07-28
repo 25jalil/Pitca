@@ -3,15 +3,14 @@ class ProductsController < ApplicationController
   
   expose :store
   expose :product_create, ->{ store.products.build(product_params) }
-  expose :product, ->{Product.find(params[:id])}
+  expose :product
   
   def create
     authorize Product
     if product_create.save
       redirect_to store
     else
-      flash[:error]= "error save"
-      redirect_to root_path
+      redirect_to root_path, alert: "error save"
     end
   end
 

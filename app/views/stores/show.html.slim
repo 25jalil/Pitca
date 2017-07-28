@@ -6,9 +6,9 @@
   p
     |Address:
     '
-    = store.address
-
+    = store.address  
   = render partial: "products/product", locals: { products: store_products, store: store }
   - if current_user.admin? or store_owner?(store)
     = render "products/form"
 
+    

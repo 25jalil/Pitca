@@ -31,7 +31,7 @@ gem "pundit"                                      # для создания си
 gem "draper" 
 gem "decent_decoration"                           
 gem "decent_exposure"
-gem "interactor"
+gem 'geocoder'
 
 gem 'listen', '~> 3.1.5'
 gem 'refile', github: 'refile/refile', require: ['refile/rails', 'refile/simple_form']

@@ -6,23 +6,27 @@ class StorePolicy
   end
 
   def new?
-    @current_user.admin? || @current_user.seller?
+    manage?
   end
 
   def create?
-    @current_user.admin? || @current_user.seller?
+    manage?
   end
 
   def edit?
-    @current_user.admin? || @current_user.seller?
+    manage?
   end
 
   def update?
-    @current_user.admin? || @current_user.seller?
+    manage?
   end
 
   def destroy?
-    @current_user.admin? || @current_user.seller?
+    manage?
   end
 
+  def private
+    def manage?
+      @current_user.admin? || @current_user.seller?
+    end
 end
