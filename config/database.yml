@@ -5,8 +5,8 @@ defaults: &defaults
   timeout: 5000
   pool: <%= [ENV.fetch("MAX_THREADS", 5), ENV.fetch("DB_POOL", 5)].max %>
   host: localhost
-  username: pguser
-  password: 104Hmoa)
+  username: pquser
+  password: password
 development:
   database: <%= ENV.fetch("DATABASE_NAME", File.basename(Rails.root)) %>_dev
   <<: *defaults

@@ -1,6 +1,5 @@
 class StoresController < ApplicationController
   include StoresHelper
-  before_action :find_store, only: [:edit, :update, :destroy]
   before_action :authenticate_user!
   
   expose :stores, ->{ Store.all.order('created_at DESC') }
@@ -20,6 +19,7 @@ class StoresController < ApplicationController
     if store_create.save
       redirect_to store, notice: "Successfully"
     else
+      flash[:notice] = "Please enter a valid address!"
       render 'new'
     end
   end

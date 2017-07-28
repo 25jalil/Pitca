@@ -6,8 +6,33 @@
   p
     |Address:
     '
-    = store.address
-
+    = store.address  
+    = image_tag "http://maps.googleapis.com/maps/api/staticmap?center=#{store.latitude},#{store.longitude}&markers=#{store.latitude},#{store.longitude}&zoom=7&size=640x400&key=AIzaSyA4BHW3txEdqfxzdTlPwaHsYRSZbfeIcd8", class: 'img-fluid img-rounded', alt: "#{store.company} on the map"
+  br
+  br
+  br
+  br
+  br
+  br
+  br
+  br
+  br
+  br
+  br
+  br
+  br
+  br
+  br
+  br
+  br
+  br
+  br
+  br
+  br
+  br
+  br
+  br
+  br
   = render partial: "products/product", locals: { products: store_products, store: store }
   - if current_user.admin? or store_owner?(store)
     = render "products/form"

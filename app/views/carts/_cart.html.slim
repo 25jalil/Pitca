@@ -1,0 +1,16 @@
+- total_price = 0
+table
+  - session[:cart].each do |product| # *при итерации хеш превращается в массив
+    - product = product.flatten # преобразуем многомерный массив в одномерный
+    tr  
+      td = product[2]  
+      td = product[1]  
+      / в строчке ниже мы вычисляем цену продукта, учитывая их количество, а так же вычисляем стоимость всего заказа
+      td = total_price += calculated_price_product(product) 
+.floatlf
+  #money
+    |Total:
+    '
+    = total_price
+    = button_to "Clear cart", destroy_cart_path, method: :get
+    = button_to "Order", orders_path
