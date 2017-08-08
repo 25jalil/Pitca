@@ -25,7 +25,7 @@ class StorePolicy
     manage?
   end
 
-  def private
+  private
     def manage?
       @current_user.admin? || @current_user.seller?
     end

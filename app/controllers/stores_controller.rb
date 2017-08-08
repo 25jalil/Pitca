@@ -15,10 +15,15 @@ class StoresController < ApplicationController
   end
 
   def create
-    authorize Store
-    if store_create.save
-      redirect_to store, notice: "Successfully"
-    else
+    begin #такую конструкцию решил прописать из за гема geokoder, перехватывать ошибку при запииси через ограничение null: false
+      authorize Store
+      if store_create.save
+        redirect_to store, notice: "Successfully"
+      else
+        flash[:notice] = "Please enter a valid address!"
+        render 'new'
+      end
+    rescue
       flash[:notice] = "Please enter a valid address!"
       render 'new'
     end

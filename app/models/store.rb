@@ -7,8 +7,5 @@ class Store < ApplicationRecord
   validates_associated :products
 
   geocoded_by :address
-  after_validation :geocode, if: ->(obj){ obj.address.present? and obj.address_changed? }
-
-  after_validation :latitude , numericality: { greater_than_or_equal_to:  -90, less_than_or_equal_to:  90 }
-  after_validation :longitude, numericality: { greater_than_or_equal_to: -180, less_than_or_equal_to: 180 }
+  after_validation :geocode
 end
