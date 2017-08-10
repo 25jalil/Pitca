@@ -6,7 +6,7 @@ class StoresController < ApplicationController
   expose :store_products, ->{ store.products }
   expose :store
   expose :store_create, ->{ current_user.stores.build(store_params) }
-  
+  expose :marker, -> { Store.find(params[:id]).to_gmaps4rails}
   def index
   end
 
@@ -30,6 +30,11 @@ class StoresController < ApplicationController
   end
 
   def show
+    stores = Store.all
+    $hash = Gmaps4rails.build_markers(stores) do |store, marker|
+      marker.lat store.latitude
+      marker.lng store.longitude
+    end
   end
 
   def edit
