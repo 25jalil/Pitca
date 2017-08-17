@@ -1,4 +1,5 @@
 class OrdersController < ApplicationController
+  respond_to :json
   include OrderHelper
   before_action :authenticate_user!
   
@@ -12,6 +13,10 @@ class OrdersController < ApplicationController
     else
       redirect_to request.referrer, notice: "unfortunately are unable to create a shopping order"
     end  
+  end
+
+  def destroy
+    respond_with Order.destroy(params[:id])
   end
 
   def show

@@ -11,7 +11,7 @@ class CartsController < ApplicationController
     redirect_to request.referrer || root_path
   end
 
-  def destroy
+  def delete_cart
     session[:cart] = nil
     redirect_to request.referrer || root_path 
   end

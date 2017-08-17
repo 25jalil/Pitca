@@ -24,7 +24,7 @@ gem 'normalize-rails'
 gem 'enum_help'
 
 # all other gems
-gem "devise"                                      # гем для аутентификаций пользователя
+gem "devise"                                      # гем для аутентификации пользователя
 gem "google-analytics-rails"                      # для анализа запросов на вебсайт
 gem "puma"                                        # вебсервер для рейлс
 gem "pundit"                                      # для создания системы авторизации                                                 
@@ -35,6 +35,7 @@ gem 'geocoder'
 gem 'gmaps4rails'
 gem 'turbolinks'
 gem 'therubyracer'
+gem 'react-rails'
 
 gem 'listen', '~> 3.1.5'
 gem 'refile', github: 'refile/refile', require: ['refile/rails', 'refile/simple_form']
@@ -58,6 +59,6 @@ end
 
 group :development do
   gem "slim-rails"                                # использование слим при гененраций команд через scaffold and resources
-  gem "spring"                                    # автоматический предразгрузчик rails s
-  gem "web-console", "~> 2.0"                     #рейлс консоль в браузере
+  gem "spring"                                    # предразгрузчик rails s
+  gem "web-console", "~> 2.0"                     # рейлс консоль в браузере
 end
