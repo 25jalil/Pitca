@@ -1,10 +1,12 @@
-= react_component 'Main', { data: orders } 
-/.order
+= react_component 'Order', { data: orders } 
+br
+.order
 	table
 	  - orders.each do |order|
-		  tr 
-		    td = order.conversion_rendition
-		    td = order.product_name
-		    td = order.product_price
-		    td = order.product_quantity
-		    td = order.calculated_order_price
+		  tbody
+			  tr 
+			    td = order.conversion_rendition
+			    td = order.product_name
+			    td = order.product_price
+			    td = order.product_quantity
+			    td = order.calculated_order_price

@@ -1,5 +1,4 @@
 class OrdersController < ApplicationController
-  respond_to :json
   include OrderHelper
   before_action :authenticate_user!
   
@@ -16,7 +15,6 @@ class OrdersController < ApplicationController
   end
 
   def destroy
-    respond_with Order.destroy(params[:id])
   end
 
   def show

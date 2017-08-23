@@ -35,7 +35,8 @@ gem 'geocoder'
 gem 'gmaps4rails'
 gem 'turbolinks'
 gem 'therubyracer'
-
+gem 'responders'
+gem 'react-rails'
 
 gem 'listen', '~> 3.1.5'
 gem 'refile', github: 'refile/refile', require: ['refile/rails', 'refile/simple_form']
