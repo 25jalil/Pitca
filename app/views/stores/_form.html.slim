@@ -7,8 +7,10 @@
           - store.errors.full_messages.each do |msg|
             li
               = msg
-.store_wrapper#page_wrapper
+.store_wrapper
   = simple_form_for store do |f|
-    = f.input :company, required: false
-    = f.input :address, required: false
+    = f.input :company, required: false, label: false, placeholder: "Name company"
+    = f.input :address, required: false, label: false, placeholder: "Address"
+    = f.input :price_per_km, required: false, label: false, placeholder: "The cost for shipping goods over one kilometer!", input_html: { class: 'my_class' }
+    br
     = f.button :submit
