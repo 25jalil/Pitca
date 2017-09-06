@@ -18,5 +18,6 @@ class OrdersController < ApplicationController
   end
 
   def show
+    render component: 'Orders', props: { orders: orders }
   end
 end
