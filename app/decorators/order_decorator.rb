@@ -8,8 +8,4 @@ class OrderDecorator < Draper::Decorator
 	  	order_rendition = "Executed"
 	  end
   end
-
-  def calculated_order_price
-    order_price = product_price * product_quantity
-  end
 end

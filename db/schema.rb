@@ -10,27 +10,14 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20170906133636) do
+ActiveRecord::Schema.define(version: 20170906170919) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
-  create_table "locations", force: :cascade do |t|
-    t.float "latitude", null: false
-    t.float "longitude", null: false
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
-  end
-
   create_table "orders", force: :cascade do |t|
     t.bigint "user_id"
-    t.integer "product_id"
-    t.string "product_name"
-    t.float "product_price"
-    t.integer "product_quantity"
-    t.boolean "rendition", default: false
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
+    t.text "order_info", null: false
     t.index ["user_id"], name: "index_orders_on_user_id"
   end
 
@@ -54,7 +41,7 @@ ActiveRecord::Schema.define(version: 20170906133636) do
     t.integer "user_id"
     t.float "latitude", null: false
     t.float "longitude", null: false
-    t.float "price_per_km", null: false
+    t.float "cost_of_shipping", null: false
     t.index ["user_id"], name: "index_stores_on_user_id"
   end
 

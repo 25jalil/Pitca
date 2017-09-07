@@ -10,8 +10,9 @@ table
       td = total_price += calculated_price_product(product) 
 .floatlf
   #money
-    |Total:
+    |Including shipping:
     '
-    = total_price
+    = total_price += session[:cost_of_shipping]
+    |  RUB
     = button_to "Clear cart", delete_cart_path, method: :get
-    = button_to "Order", orders_path
+    = button_to "Order", pre_order_path, method: :get

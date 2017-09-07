@@ -11,6 +11,6 @@
   = simple_form_for store do |f|
     = f.input :company, required: false, label: false, placeholder: "Name company"
     = f.input :address, required: false, label: false, placeholder: "Address"
-    = f.input :price_per_km, required: false, label: false, placeholder: "The cost for shipping goods over one kilometer!", input_html: { class: 'my_class' }
+    = f.input :cost_of_shipping, required: false,  label: false, placeholder: "The cost of delivery of goods for one kilometer in rubles!", input_html: { class: 'my_class' }
     br
     = f.button :submit
