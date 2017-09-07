@@ -19,9 +19,34 @@ td, th {
   height: 30px;
 }
 
-td, tr {
+#footer_text1 {
+  font-family: Helvetica, Arial, sans-serif;
+  font-size: 20px;
+  color: #ff8080;
+  float: right;
+  margin-top: 15px;
+  margin-right: 13px; 
+}
+
+#footer_text2 {
+  font-family: Helvetica, Arial, sans-serif;
+  font-size: 20px;
+  color: #ff8080;
+  float: right;
+  margin-top: 15px;
+  margin-right: 13px; 
+}
+
+tr {
   background: #9eafba;
   text-align: center;
+}
+
+.radius_left_th {
+  border-top-left-radius: 10px; 
+}
+.radius_right_th {
+  border-top-right-radius: 10px; 
 }
 
 tr:first-child th:first-child { border-top-left-radius: 10px; }

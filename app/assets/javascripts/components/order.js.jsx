@@ -5,6 +5,10 @@ var Order = React.createClass({
   	}
   },
 
+  getDefaultProps() { 
+    return { order: [] }
+  },
+
   _rendition(e) {
     if (e === true) {
     	return "Executed!";
