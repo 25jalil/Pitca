@@ -6,7 +6,12 @@
   p
     |Address:
     '
-    = store.address    
+    = store.address
+  p
+    |The cost for shipping goods over 1 kilometer:
+    '
+    = store.cost_of_shipping
+    |  RUB   
   #map
   br
   = render partial: "products/product", locals: { products: store_products, store: store }

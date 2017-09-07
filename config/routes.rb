@@ -12,4 +12,5 @@ Rails.application.routes.draw do
   get :delete_cart, to: "carts#delete_cart"
   
   resources :orders, only: [:create, :show]
+  get :pre_order, to: "orders#pre_order"
 end

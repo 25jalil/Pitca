@@ -1,0 +1,30 @@
+- order_value = 0
+.order	
+	table
+	  thead
+	    tr
+        th.radius_left_th = "Product name"   
+        th = "Price"   
+        th = "Amount"   
+        th.radius_right_th = "Total price"
+		tbody
+		  - @current_order.each do |products|
+		    tr
+				  td = products["product_name"]
+				  td = products["product_price"]
+				  td = products["amount"]
+				  td = value = calculated_order_price(products["product_price"], products["amount"])
+	        - order_value += value   
+	#footer_text1
+	  | Shipping cost:
+	  '
+	  = @cost_of_shipping
+	  |  RUB
+	br
+	br
+
+	#footer_text2 
+	  | Total cost of the order:
+	  '
+	  = @cost_of_shipping + order_value
+	  |  RUB

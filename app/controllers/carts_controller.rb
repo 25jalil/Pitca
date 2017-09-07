@@ -13,6 +13,7 @@ class CartsController < ApplicationController
 
   def delete_cart
     session[:cart] = nil
+    session[:cost_of_shipping] = nil
     redirect_to request.referrer || root_path 
   end
 

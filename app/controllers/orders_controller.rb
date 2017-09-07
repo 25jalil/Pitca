@@ -6,17 +6,24 @@ class OrdersController < ApplicationController
   
   def create
     if session[:cart].any?
-      order_create(session[:cart])
-      session[:cart] = nil
+      order = Order.create!(order_info: session[:cart], user_id: current_user.id)
       render "show"
     else
       redirect_to request.referrer, notice: "unfortunately are unable to create a shopping order"
     end  
   end
 
+  def pre_order
+    @current_order = session[:cart].values
+    @cost_of_shipping = session[:cost_of_shipping]
+    session[:cart] = nil
+    session[:cost_of_shipping] = nil
+  end
+
   def destroy
   end
 
   def show
+    render component: 'Orders', props: { orders: orders }
   end
 end
