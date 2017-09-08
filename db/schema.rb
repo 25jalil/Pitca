@@ -18,9 +18,11 @@ ActiveRecord::Schema.define(version: 20170907165244) do
   create_table "orders", force: :cascade do |t|
     t.bigint "user_id"
     t.text "order_info", null: false
+    t.bigint "store_id"
     t.string "recipient_adress"
     t.float "recipient_latitude", null: false
     t.float "recipient_longitude", null: false
+    t.index ["store_id"], name: "index_orders_on_store_id"
     t.index ["user_id"], name: "index_orders_on_user_id"
   end
 
@@ -73,4 +75,5 @@ ActiveRecord::Schema.define(version: 20170907165244) do
     t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true
   end
 
+  add_foreign_key "orders", "stores"
 end

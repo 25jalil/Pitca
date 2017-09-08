@@ -31,6 +31,7 @@ class StoresController < ApplicationController
       marker.lat store.latitude
       marker.lng store.longitude
     end
+    session[:store_location] = store.geocode
     session[:cost_of_shipping] = store.cost_of_shipping
     session[:current_store] = store.id
   end

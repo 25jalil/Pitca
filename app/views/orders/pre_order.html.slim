@@ -28,9 +28,3 @@
 	  '
 	  = @cost_of_shipping + order_value
 	  |  RUB
-
-.store_wrapper
-  = simple_form_for order do |f|
-    = f.input :recipient_adress, required: false,  label: false, placeholder: "Where to deliver your order?", input_html: { class: 'my_class' }
-    br
-    = f.button :submit
