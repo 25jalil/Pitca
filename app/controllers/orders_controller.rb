@@ -1,23 +1,25 @@
 class OrdersController < ApplicationController
   include OrderHelper
   before_action :authenticate_user!
-  
+  before_action :check_session, only: [:pre_order]
+
   expose_decorated :orders, ->{current_user.orders}
-  
+  expose_decorated :order
+
   def create
-    if session[:cart].any?
-      order = Order.create!(order_info: session[:cart], user_id: current_user.id)
-      render "show"
+    @order = current_user.orders.build(order_params)
+    @order.order_info = session[:cart]
+    if @order.save
+      redirect_to root_path, notice: "Successfully"
     else
-      redirect_to request.referrer, notice: "unfortunately are unable to create a shopping order"
-    end  
+      flash[:notice] = "Please enter a valid address!"
+      render 'pre_order'
+    end
   end
 
   def pre_order
     @current_order = session[:cart].values
     @cost_of_shipping = session[:cost_of_shipping]
-    session[:cart] = nil
-    session[:cost_of_shipping] = nil
   end
 
   def destroy
@@ -26,4 +28,14 @@ class OrdersController < ApplicationController
   def show
     render component: 'Orders', props: { orders: orders }
   end
+
+  private
+
+    def check_session
+      redirect_to root_path if session[:cart] == nil
+    end
+
+    def order_params
+      params.require(:order).permit(:recipient_adress)
+    end
 end

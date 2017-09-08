@@ -1,5 +1,11 @@
 - total_price = 0
 table
+  thead
+    tr
+      th = "Name"
+      th = "Amount"
+      th = "Price"
+  tbody
   - session[:cart].each do |product| # *при итерации хеш превращается в массив
     - product = product.flatten # преобразуем многомерный массив в одномерный
     - Rails.logger.debug(product.flatten) 
@@ -7,12 +13,8 @@ table
       td = product[1]["product_name"]  
       td = product[1]["amount"]  
       / в строчке ниже мы вычисляем цену продукта, учитывая их количество, а так же вычисляем стоимость всего заказа
-      td = total_price += calculated_price_product(product) 
+      td = calculated_price_product(product) 
 .floatlf
   #money
-    |Including shipping:
-    '
-    = total_price += session[:cost_of_shipping]
-    |  RUB
     = button_to "Clear cart", delete_cart_path, method: :get
     = button_to "Order", pre_order_path, method: :get
