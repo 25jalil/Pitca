@@ -31,8 +31,8 @@ class StoresController < ApplicationController
       marker.lat store.latitude
       marker.lng store.longitude
     end
-    session[:store_location] = store.geocode
-    session[:cost_of_shipping] = store.cost_of_shipping
+    session[:sender_coordinates] = store.geocode
+    session[:price_to_km] = store.cost_of_shipping
     session[:current_store] = store.id
   end
 
@@ -66,9 +66,10 @@ class StoresController < ApplicationController
 
     def clear_session
       if session[:current_store] != store.id 
-        session[:cart] = nil
-        session[:cost_of_shipping] = nil
         session[:current_store] = nil
+        session[:cart] = nil
+        session[:price_to_km] = nil
+        session[:sender_coordinates] = nil
       end
     end
 end

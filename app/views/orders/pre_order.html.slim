@@ -1,5 +1,7 @@
-- order_value = 0
+- price_products = 0
 .order	
+	#map_to_pre_order
+	br
 	table
 	  thead
 	    tr
@@ -14,17 +16,32 @@
 				  td = products["product_price"]
 				  td = products["amount"]
 				  td = value = calculated_order_price(products["product_price"], products["amount"])
-	        - order_value += value   
+	        - price_products += value   
 	#footer_text1
+	  | Total price products:
+	  '
+	  = price_products
+	  |  RUB
+	br
+	br
+	#footer_text1
+	  | Distance:
+	  '
+	  = @distance
+	  |  KM
+	br
+	br
+	#footer_text1 
 	  | Shipping cost:
 	  '
-	  = @cost_of_shipping
+	  = @shipping
 	  |  RUB
 	br
 	br
-
-	#footer_text2 
+	#footer_text2  
 	  | Total cost of the order:
 	  '
-	  = @cost_of_shipping + order_value
+	  = @shipping + price_products
 	  |  RUB
+	br
+= javascript_include_tag "map_to_pre_order"

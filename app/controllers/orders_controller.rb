@@ -6,18 +6,7 @@ class OrdersController < ApplicationController
   expose_decorated :orders, ->{current_user.orders}
   expose_decorated :order
 
-  
   def create
-    @order = Order.new(order_params)
-    session[:store_location] = Store.last.geocode
-    session[:order_location] = Geocoder.coordinates(@order.recipient_adress)
-    render "long"
-  end
-
-  def long
-  end
-
-  def create123
     @order = current_user.orders.build(order_params)
     @order.order_info = session[:cart]
     if @order.save
@@ -32,8 +21,23 @@ class OrdersController < ApplicationController
   end
 
   def pre_order
+    @order = Order.new(order_params)
+    @recipient_coordinates = Geocoder.coordinates(@order.recipient_adress)
+    @distance = Geocoder::Calculations.distance_between(session[:sender_coordinates], @recipient_coordinates).round(1)
+    @price_to_km = session[:price_to_km]
+    @shipping = @distance * @price_to_km
     @current_order = session[:cart].values
-    @cost_of_shipping = session[:cost_of_shipping]
+
+    @markers = []
+    @markers << @recipient_coordinates
+    @markers << session[:sender_coordinates]
+
+    $hash_pre_order = Gmaps4rails.build_markers(@markers) do |point, marker|
+      marker.lat point[0]
+      marker.lng point[1]
+      Rails.logger.debug("My object: #{marker.lat point[0]}")
+      Rails.logger.debug("My object: #{marker.lng point[1]}")
+    end
   end
 
   def destroy

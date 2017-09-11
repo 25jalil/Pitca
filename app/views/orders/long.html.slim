@@ -1,5 +1,0 @@
-= session[:order_location]
-br
-= session[:store_location]
-br
-= Geocoder::Calculations.distance_between(session[:order_location], session[:store_location]).round(1)
