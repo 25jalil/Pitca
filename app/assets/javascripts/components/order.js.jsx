@@ -27,9 +27,9 @@ var Order = React.createClass({
       <tr>
         <td>{this._rendition(this.state.order.rendition)}</td>
         <td>{this.state.order.product_name}</td>
-        <td>{this.state.order.product_quantity}</td>
+        <td>{this.state.order.amount}</td>
         <td>{this.state.order.product_price.toFixed([1])}</td>
-        <td>{this._calculatedOrderPrice(this.state.order.product_quantity, this.state.order.product_price)}</td>
+        <td>{this._calculatedOrderPrice(this.state.order.amount, this.state.order.product_price)}</td>
       </tr>
   	);
   }

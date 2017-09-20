@@ -37,6 +37,34 @@ td, th {
   margin-right: 13px; 
 }
 
+#button_order {
+  color: #ff8080;
+  font-family: "Great Vibes";
+  font-size: 20px;
+  margin: 9px;
+  float: right;
+
+  input[type="submit"] {
+  margin-top: 9px;
+  outline: none;
+  width: 200px;
+  height: 50px;
+  background: transparent;
+  border: 2px solid #21a79d;
+  padding: .4em;
+  font-size: 25px;
+  border-radius: 15px;
+  color: #21a79d;
+    &:hover {
+      border: 3px solid #21a79d;
+      color: #21a79d;
+      font-size: 29px;
+      height: 53px;
+      width: 203px;
+    }
+  }
+}
+
 tr {
   background: #9eafba;
   text-align: center;

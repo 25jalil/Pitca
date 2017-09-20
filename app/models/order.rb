@@ -3,7 +3,9 @@ class Order < ApplicationRecord
   belongs_to :store
   
   serialize :order_info
- 
-  geocoded_by :recipient_adress, :latitude  => :recipient_latitude, :longitude => :recipient_longitude
-  after_validation :geocode, if: ->(obj){ obj.recipient_adress.present?}
+
+  scope :all_orders_user, -> (user) do
+    select("order_info")
+    .where("user_id = ?", user)
+  end
 end

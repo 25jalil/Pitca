@@ -13,5 +13,6 @@ Rails.application.routes.draw do
   
   resources :orders, only: [:create, :show]
   get :recipient_adress, to: "orders#recipient_adress"
+  get :current_user_orders, to: "orders#current_user_orders"
   post :pre_order, to: "orders#pre_order"
 end

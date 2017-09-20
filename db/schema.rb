@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20170907165244) do
+ActiveRecord::Schema.define(version: 20170919142909) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -20,8 +20,10 @@ ActiveRecord::Schema.define(version: 20170907165244) do
     t.text "order_info", null: false
     t.bigint "store_id"
     t.string "recipient_adress"
-    t.float "recipient_latitude", null: false
-    t.float "recipient_longitude", null: false
+    t.string "sender_coordinates", default: [], array: true
+    t.string "recipient_coordinates", default: [], array: true
+    t.datetime "created_at"
+    t.boolean "rendition", default: false
     t.index ["store_id"], name: "index_orders_on_store_id"
     t.index ["user_id"], name: "index_orders_on_user_id"
   end
