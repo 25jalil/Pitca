@@ -1,20 +1,12 @@
 var Order = React.createClass({
   getInitialState() {
   	return {
-  		order: this.props.order
+  		products_order: this.props.products_order
   	}
   },
 
   getDefaultProps() { 
-    return { order: [] }
-  },
-
-  _rendition(e) {
-    if (e === true) {
-    	return "Executed!";
-    } else {
-    	return "Not executed";
-    }
+    return { products_order: [] }
   },
 
   _calculatedOrderPrice(price, quantity) {
@@ -25,11 +17,10 @@ var Order = React.createClass({
   render() {
   	return (
       <tr>
-        <td>{this._rendition(this.state.order.rendition)}</td>
-        <td>{this.state.order.product_name}</td>
-        <td>{this.state.order.amount}</td>
-        <td>{this.state.order.product_price.toFixed([1])}</td>
-        <td>{this._calculatedOrderPrice(this.state.order.amount, this.state.order.product_price)}</td>
+        <td>{this.state.products_order.product_name}</td>
+        <td>{this.state.products_order.amount}</td>
+        <td>{this.state.products_order.product_price.toFixed([1])}</td>
+        <td>{this._calculatedOrderPrice(this.state.products_order.amount, this.state.products_order.product_price)}</td>
       </tr>
   	);
   }

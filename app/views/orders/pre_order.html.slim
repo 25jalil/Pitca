@@ -34,14 +34,14 @@
 	#footer_text1 
 	  | Shipping cost:
 	  '
-	  = @shipping
+	  = session[:shipping]
 	  |  RUB
 	br
 	br
 	#footer_text2  
 	  | Total cost of the order:
 	  '
-	  = @shipping + price_products
+	  = session[:total_price] = session[:shipping] + price_products
 	  |  RUB
 	br
 	br

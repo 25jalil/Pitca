@@ -1,9 +1,9 @@
 var Orders = React.createClass({ 
 
 	render: function() {
-		orders = this.props.orders.map( function(order) {
+		orders = this.props.orders.map( function(products_order) {
       return (
-      	<Order order={order} key={order.id} />      
+      	<Order products_order={products_order} key={products_order.id} />      
       );
 		});
 		return (
@@ -12,7 +12,6 @@ var Orders = React.createClass({
           <table>
             <thead>
               <tr>
-	              <th>Rendition</th>
 	              <th>Product name</th>
 	              <th>Quantity</th>
 	              <th>Price</th>
