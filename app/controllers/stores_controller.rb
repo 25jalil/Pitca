@@ -27,10 +27,11 @@ class StoresController < ApplicationController
   end
 
   def show
-    $hash = Gmaps4rails.build_markers(stores) do |store, marker|
-      marker.lat store.latitude
-      marker.lng store.longitude
+    @hash = Gmaps4rails.build_markers(store) do |point, marker|
+      marker.lat point.latitude
+      marker.lng point.longitude
     end
+    Rails.logger.debug("#{$hash}")
     session[:sender_coordinates] = store.geocode
     session[:price_to_km] = store.cost_of_shipping
     session[:current_store] = store.id

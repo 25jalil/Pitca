@@ -47,4 +47,12 @@
 	br
 	#button_order 
 		= button_to "Order", orders_path
-= javascript_include_tag "map_to_pre_order"
+javascript:
+  handler = Gmaps.build('Google');
+    handler.buildMap( { provider: {}, internal: { id: "map_to_pre_order" } }, function(){
+    markers = handler.addMarkers(#{raw @hash_pre_order.to_json}); 
+    handler.bounds.extendWith(markers);
+    handler.fitMapToBounds();
+    handler.getMap().setZoom(10);
+  });
+  console.log(#{raw @hash_pre_order.to_json}); 
