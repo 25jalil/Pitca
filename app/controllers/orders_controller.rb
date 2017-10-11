@@ -1,7 +1,6 @@
 class OrdersController < ApplicationController
   include OrderHelper
   include SessionHelper
-  after_action  :clear_session, only: [:pre_order]
   before_action :authenticate_user!
   before_action :check_session, only: [:pre_order, :recipient_adress]
   
@@ -9,6 +8,9 @@ class OrdersController < ApplicationController
   expose_decorated :order
 
   def index
+    orders_user = Order.includes(:products_orders).where(user_id: current_user.id)
+    products_order = orders_user.last.products_orders
+    render component: 'Orders', props: { products_order: products_order, orders_user: orders_user }
   end
 
   def create
@@ -21,8 +23,8 @@ class OrdersController < ApplicationController
     session[:cart].values.flatten.each do |product|
       order.products_orders.build(product_name: product["product_name"],
                                   product_price: product["product_price"],
-                                  amount: product["amount"], 
-                                  rendition: false)
+                                  amount: product["amount"],
+                                  user_id: current_user.id)
     end
     if order.save! 
       clear_session
@@ -60,10 +62,9 @@ class OrdersController < ApplicationController
   end
 
   def show
-    order = Order.where(user_id: current_user.id).last
-    orders = order.products_orders
-    rok = "jkjbjkbhk"
-    render component: 'Orders', props: { orders: orders, rok: rok }
+    products_order = order.products_orders
+    orders_user = Order.where(user_id: current_user.id)
+    render component: 'Orders', props: { products_order: products_order, orders_user: orders_user }
   end
   
   private
