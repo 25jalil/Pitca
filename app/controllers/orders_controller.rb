@@ -59,6 +59,10 @@ class OrdersController < ApplicationController
   end
 
   def destroy
+    Order.find(params[:id]).destroy
+    respond_to do |format|
+      format.json { render :json => {}, :status => :no_content }
+    end
   end
 
   def show

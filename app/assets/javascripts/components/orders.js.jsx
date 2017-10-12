@@ -1,6 +1,6 @@
 var Orders = React.createClass({ 
 
-	render: function() {
+  render: function() {
 		products_orders = this.props.products_order.map( function(product) {
       return (
       	<ProductsOrder products_order={product} key={product.id} />      

@@ -15,6 +15,8 @@
 //= require rails-ujs
 //= require react
 //= require react_ujs
+//= require jquery
+//= require jquery_ujs
 //= require components
 //= require moment
 //= require_tree .
