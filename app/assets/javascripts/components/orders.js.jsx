@@ -1,21 +1,36 @@
 var Orders = React.createClass({ 
 
+  getInitialState() {
+    return {
+      products_order: this.props.products_order
+    }
+  },
+  
+   handleFireOrder(order) {
+    var orderList = this.props.orders_user.filter(function(item) {
+      return order.id != item.id;
+    });
+    this.replaceState({orders_user: orderList});
+    console.log(this.props.orders_user)
+    console.log(this.state.orders_user)
+  },  
+  
   render: function() {
-		products_orders = this.props.products_order.map( function(product) {
+
+		products_order = this.props.products_order.map( function(product) {
       return (
-      	<ProductsOrder products_order={product} key={product.id} />      
+      	<ProductsOrder products_order={product} key={product.id}/>      
       );
 		});
-    orders_user = this.props.orders_user.map( function(order) {
+
+    orders_user = this.props.orders_user.map((order) => {
       return (
-        <Order order={order} key={order.id} />      
+        <Order order={order} key={order.id} onFireOrder={this.handleFireOrder} />      
       );
     });
 		return (
-      <div>
-        <ol>          
-          {orders_user}
-        </ol>
+      <div>         
+        {orders_user}
         <table>
           <thead>
             <tr>
@@ -24,11 +39,10 @@ var Orders = React.createClass({
               <th>Price</th>
               <th>Total price</th>
               <th>Actions</th>
-              <th></th>
             </tr>
           </thead>
           <tbody>
-          	{products_orders} 
+          	{products_order} 
           </tbody> 
         </table>
       </div>

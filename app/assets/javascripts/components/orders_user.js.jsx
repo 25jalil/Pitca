@@ -5,22 +5,24 @@ var Order= React.createClass({
     }
   },
 
-  _handleOrderRemove() {
-    console.log("hbhbjh");
+  handleOrderFire() {
     var that = this;
     $.ajax({
       method: 'DELETE',
-      url: '/orders/' + that.state.order.id + '.json'
+      url: '/orders/' + that.state.order.id + '.json',
+      success: function(res) {
+        that.props.onFireOrder(that.props.order);
+      }
     })
   },
 
-  _moment(creted_at){
-    return moment(creted_at).format("Do MMM YYYY")
+  _moment(created_at){
+    return moment(created_at).format("Do MMM YYYY");
   },
 
   render() {
     return (
-      <li>Order {this._moment(this.state.order.created_at)}<button onClick={this._handleOrderRemove} style={{color: 'red'}}>Remove</button></li>
+      <h4>Order {this._moment(this.state.order.created_at)}<button onClick={this.handleOrderFire} style={{color: "red"}}>Remove</button></h4>
     );
   }
 });
