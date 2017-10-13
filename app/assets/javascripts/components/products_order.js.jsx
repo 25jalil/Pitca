@@ -30,7 +30,6 @@ var ProductsOrder= React.createClass({
         <td>{this.state.products_order.product_price.toFixed([1])}</td>
         <td>{this._calculatedOrderPrice(this.state.products_order.amount, this.state.products_order.product_price)}</td>
         <td>{this._calculatedOrderPrice(this.state.products_order.amount, this.state.products_order.product_price)}</td>
-        <td></td>
       </tr>
   	);
   }
