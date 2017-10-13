@@ -1,5 +1,6 @@
 class CartsController < ApplicationController
   include CartHelper
+  include SessionHelper
   before_action :authenticate_user!
   before_action :initialize_cart, only: [:create]
   expose :product
@@ -12,8 +13,8 @@ class CartsController < ApplicationController
   end
 
   def delete_cart
-    session[:cart] = nil
-    redirect_to request.referrer || root_path 
+    clear_session
+    redirect_to request.referrer || stores_path 
   end
 
   private 

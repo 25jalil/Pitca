@@ -11,6 +11,7 @@
         | Price:
         '
         = product.price
+        |  *The price excluding shipping.
       br
       #button
         = button_to "add to cart", carts_path(id: product)

@@ -8,7 +8,6 @@ gem "pg"                                          # для соеденения 
 gem "coffee-rails"                                # для чтения coffee файлов
 gem "sass-rails", "~> 5.0.0", ">= 5.0.6"          # стандартная библиотека sass
 gem "uglifier", ">= 2.7.2"                        # стандартная библиотека
-gem 'foundation-rails'
 
 source "https://rails-assets.org" do
   gem "rails-assets-jquery-ujs"                   # подключает jquery
@@ -20,8 +19,8 @@ gem "active_link_to"                              # отображает ссы�
 gem "metamagic"                                   # плагин для создания метатегов
 gem "simple_form"                                 # плагин для создания понятных инпутов
 gem "slim"                                        # упрощает код html с помощью иерархической структуры, аналог haml
-gem 'normalize-rails'
-gem 'enum_help'
+gem "normalize-rails"
+gem "enum_help"
 
 # all other gems
 gem "devise"                                      # гем для аутентификации пользователя
@@ -31,15 +30,17 @@ gem "pundit"                                      # для создания си
 gem "draper" 
 gem "decent_decoration"                           
 gem "decent_exposure"
-gem 'geocoder'
-gem 'gmaps4rails'
-gem 'turbolinks'
-gem 'therubyracer'
-gem 'responders'
-gem 'react-rails'
+gem "geocoder"
+gem "gmaps4rails"
+gem "turbolinks"
+gem "therubyracer"
+gem "responders"
+gem "react-rails"
+gem "momentjs-rails"
+gem "jquery-rails"
 
-gem 'listen', '~> 3.1.5'
-gem 'refile', github: 'refile/refile', require: ['refile/rails', 'refile/simple_form']
+gem "listen", "~> 3.1.5"
+gem "refile", github: "refile/refile", require: ["refile/rails", "refile/simple_form"]
 gem "refile-mini_magick"
 
 group :staging, :production do

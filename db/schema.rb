@@ -10,27 +10,22 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20170906133636) do
+ActiveRecord::Schema.define(version: 20171006112218) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
-  create_table "locations", force: :cascade do |t|
-    t.float "latitude", null: false
-    t.float "longitude", null: false
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
-  end
-
   create_table "orders", force: :cascade do |t|
     t.bigint "user_id"
-    t.integer "product_id"
-    t.string "product_name"
-    t.float "product_price"
-    t.integer "product_quantity"
+    t.bigint "store_id"
+    t.string "recipient_adress"
+    t.string "sender_coordinates", default: [], array: true
+    t.string "recipient_coordinates", default: [], array: true
+    t.datetime "created_at"
     t.boolean "rendition", default: false
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
+    t.float "shipping"
+    t.float "total_price"
+    t.index ["store_id"], name: "index_orders_on_store_id"
     t.index ["user_id"], name: "index_orders_on_user_id"
   end
 
@@ -46,6 +41,18 @@ ActiveRecord::Schema.define(version: 20170906133636) do
     t.index ["store_id"], name: "index_products_on_store_id"
   end
 
+  create_table "products_orders", force: :cascade do |t|
+    t.string "product_name"
+    t.float "product_price"
+    t.integer "amount"
+    t.bigint "order_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.bigint "user_id"
+    t.index ["order_id"], name: "index_products_orders_on_order_id"
+    t.index ["user_id"], name: "index_products_orders_on_user_id"
+  end
+
   create_table "stores", force: :cascade do |t|
     t.string "company"
     t.text "address"
@@ -54,7 +61,7 @@ ActiveRecord::Schema.define(version: 20170906133636) do
     t.integer "user_id"
     t.float "latitude", null: false
     t.float "longitude", null: false
-    t.float "price_per_km", null: false
+    t.float "cost_of_shipping", null: false
     t.index ["user_id"], name: "index_stores_on_user_id"
   end
 
@@ -83,4 +90,5 @@ ActiveRecord::Schema.define(version: 20170906133636) do
     t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true
   end
 
+  add_foreign_key "orders", "stores"
 end

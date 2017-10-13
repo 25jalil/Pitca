@@ -17,7 +17,7 @@ Geocoder.configure(
   # always_raise: [],
 
   # Calculation options
-  # units: :mi,                 # :km for kilometers or :mi for miles
+  units: :km,                   # :km for kilometers or :mi for miles
   # distances: :linear          # :spherical or :linear
   api_key: "AIzaSyBmPIb7F97XBi3uXIDlOeY548dBI7Vfm6A"
 )
