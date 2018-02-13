@@ -1,12 +1,12 @@
-var Orders = React.createClass({ 
-
+var All_user_orders = React.createClass({ 
+  
   getInitialState() {
     return {
-      products_order: this.props.products_order
+      orders_user: this.props.orders_user
     }
   },
-  
-   handleFireOrder(order) {
+
+  handleFireOrder(order) {
     var orderList = this.props.orders_user.filter(function(item) {
       return order.id != item.id;
     });
@@ -17,12 +17,6 @@ var Orders = React.createClass({
   
   render: function() {
 
-		products_order = this.props.products_order.map( function(product) {
-      return (
-      	<ProductsOrder products_order={product} key={product.id}/>      
-      );
-		});
-
     orders_user = this.props.orders_user.map((order) => {
       return (
         <Order order={order} key={order.id} onFireOrder={this.handleFireOrder} />      
@@ -30,20 +24,26 @@ var Orders = React.createClass({
     });
 		return (
       <div>         
+        <h2> All user orders </h2>
         <table>
           <thead>
             <tr>
-              <th>Product name</th>
-              <th>Quantity</th>
-              <th>Price</th>
+              <th>Rendition</th>
+              <th>Created_at</th>
+              <th>Recipient Adress</th>
+              <th>Shipping</th>
               <th>Total price</th>
             </tr>
           </thead>
           <tbody>
-          	{products_order} 
+            {orders_user} 
           </tbody> 
         </table>
       </div>
 		);
 	} 
 });
+
+
+
+      

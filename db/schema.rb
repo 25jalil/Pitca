@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20171006112218) do
+ActiveRecord::Schema.define(version: 20180214090217) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -48,6 +48,7 @@ ActiveRecord::Schema.define(version: 20171006112218) do
     t.bigint "order_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.boolean "rendition"
     t.bigint "user_id"
     t.index ["order_id"], name: "index_products_orders_on_order_id"
     t.index ["user_id"], name: "index_products_orders_on_user_id"
@@ -86,6 +87,7 @@ ActiveRecord::Schema.define(version: 20171006112218) do
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.integer "role"
+    t.string "name"
     t.index ["email"], name: "index_users_on_email", unique: true
     t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true
   end

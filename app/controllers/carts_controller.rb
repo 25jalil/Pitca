@@ -14,7 +14,7 @@ class CartsController < ApplicationController
 
   def delete_cart
     clear_session
-    redirect_to request.referrer || stores_path 
+    redirect_to stores_path 
   end
 
   private 
