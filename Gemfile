@@ -38,6 +38,7 @@ gem "responders"
 gem "react-rails"
 gem "momentjs-rails"
 gem "jquery-rails"
+gem "fullcalendar-rails"
 
 gem "listen", "~> 3.1.5"
 gem "refile", github: "refile/refile", require: ["refile/rails", "refile/simple_form"]

@@ -11,6 +11,7 @@
  * It is generally better to create a new file per style scope.
  *
  *= require normalize-rails
+ *= require fullcalendar
  *= require_tree .
  *= require_self
  */
@@ -59,4 +60,11 @@ p {
 #map_to_pre_order{
   width: 1000px;
   height: 300px;
+}
+.fc-bg table tbody tr td {
+  display: none;
+}
+
+.fc-bg table tbody tr {
+  display: none;
 }

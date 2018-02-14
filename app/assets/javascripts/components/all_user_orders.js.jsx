@@ -23,7 +23,7 @@ var All_user_orders = React.createClass({
       );
     });
 		return (
-      <div>         
+      <div className="navbar">         
         <h2> All user orders </h2>
         <table>
           <thead>

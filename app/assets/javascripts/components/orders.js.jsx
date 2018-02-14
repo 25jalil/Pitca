@@ -29,7 +29,7 @@ var Orders = React.createClass({
       );
     });
 		return (
-      <div>         
+      <div className="navbar">         
         <table>
           <thead>
             <tr>
