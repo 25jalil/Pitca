@@ -2,6 +2,7 @@ class User < ApplicationRecord
   include UsersHelper
   has_many :orders, dependent: :destroy
   has_many :stores, dependent: :destroy
+  has_many :menus, dependent: :destroy
 
   validates_format_of :email,:with => Devise::email_regexp
   validates :role, inclusion: {in: :role}

@@ -1,44 +1,40 @@
-$(document).ready(function() {
-    $('#calendar').fullCalendar({
+$(function () {
+  $('#calendar').fullCalendar({
 
-      customButtons: {
-        myCustomButton: {
-          text: 'my events',
-          click: function() {
-            $('#calendar').fullCalendar('removeEvents');
-            $('#calendar').fullCalendar('addEventSource', '/my_events.json');
-            $('#calendar').fullCalendar('rerenderEvents' );
-          }
-        },
-        allCustomButton: {
-          text: 'all events',
-          click: function() {
-            $('#calendar').fullCalendar('removeEvents');
-            $('#calendar').fullCalendar('addEventSource', '/events.json');
-            $('#calendar').fullCalendar('rerenderEvents' );
-          }
+    customButtons: {
+      myCustomButton: {
+        text: 'my events',
+        click: function() {
+          $('#calendar').fullCalendar('removeEvents');
+          $('#calendar').fullCalendar('addEventSource', '/my_events.json');
+          $('#calendar').fullCalendar('rerenderEvents' );
         }
       },
-
-      header: {
-        left: 'title',
-        right: 'allCustomButton, myCustomButton, today, prev, next'
-      },
-
-      buttonText: {
-        today: "Сегодня"
-      },
-      monthNames: ['Январь','Февраль','Март','Апрель','Май','Июнь','Июль','Август','Сентябрь','Октябрь','Ноябрь','Декабрь'],
-      dayNamesShort: ["ВС","ПН","ВТ","СР","ЧТ","ПТ","СБ"],
-      selectable: true,
-      selectHelper: true,
-      editable: true,
-      eventLimit: true,
-      events: '/events.json',
-      eventClick: function(event) {
-        event.url
+      allCustomButton: {
+        text: 'all events',
+        click: function() {
+          $('#calendar').fullCalendar('removeEvents');
+          $('#calendar').fullCalendar('addEventSource', '/events.json');
+          $('#calendar').fullCalendar('rerenderEvents' );
+        }
       }
-    });
-  });
+    },
 
-$(document).on('turbolinks:load', calendar);
+    header: {
+      left: 'title',
+      right: 'allCustomButton, myCustomButton, today, prev, next'
+    },
+
+    buttonText: {
+      today: "Today"
+    },
+    selectable: true,
+    selectHelper: true,
+    editable: true,
+    eventLimit: true,
+    events: '/store_menus.json',
+    eventClick: function(menu) {
+      menu.url
+    }
+  });
+});

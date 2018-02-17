@@ -5,6 +5,7 @@ Rails.application.routes.draw do
   resources  :users
   
   resources  :stores do
+    resources :menus
     resources :products  	
   end
 

@@ -10,10 +10,13 @@
 //= require fullcalendar
 //= require bootstrap-datepicker
 //= require_tree .
+var dateToday = new Date(); 
 $(function() {
     $('input.datepicker').data({behaviour: "datepicker"}).datepicker({
       dateFormat: 'YYYY-MM-DD',
-      autoclose: true
+      autoclose: true,
+      minDate: dateToday
     });
 });
+
 

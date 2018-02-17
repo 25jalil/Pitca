@@ -1,6 +1,7 @@
 class Store < ApplicationRecord
   has_many :products, dependent: :destroy
   has_many :orders
+  has_many :menus
   
   belongs_to :user
   
