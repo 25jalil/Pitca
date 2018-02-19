@@ -7,7 +7,8 @@ gem "pg"                                          # для соеденения 
 # assets
 gem "coffee-rails"                                # для чтения coffee файлов
 gem "sass-rails", "~> 5.0.0", ">= 5.0.6"          # стандартная библиотека sass
-gem "uglifier", ">= 2.7.2"                        # стандартная библиотека
+gem "uglifier", ">= 2.7.2"
+gem 'jbuilder', '~> 2.0'                        # стандартная библиотека
 
 source "https://rails-assets.org" do
   gem "rails-assets-jquery-ujs"                   # подключает jquery

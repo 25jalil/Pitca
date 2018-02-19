@@ -32,7 +32,7 @@ $(function () {
     selectHelper: true,
     editable: true,
     eventLimit: true,
-    events: '/store_menus.json',
+    events: '/events.json',
     eventClick: function(menu) {
       menu.url
     }

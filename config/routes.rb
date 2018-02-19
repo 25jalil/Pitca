@@ -9,6 +9,8 @@ Rails.application.routes.draw do
     resources :products  	
   end
 
+  get 'events', to: 'menus#index'
+
   resources :carts, only: [:create]
   get :delete_cart, to: "carts#delete_cart"
   

@@ -13,7 +13,7 @@
 var dateToday = new Date(); 
 $(function() {
     $('input.datepicker').data({behaviour: "datepicker"}).datepicker({
-      dateFormat: 'YYYY-MM-DD',
+      format: 'yyyy-mm-dd',
       autoclose: true,
       minDate: dateToday
     });
