@@ -1,0 +1,12 @@
+- products.each do |product|
+  .margin_content
+    = image(product)
+    .products
+      #name
+        = product.name
+      #description
+        = product.description
+      br
+      #button
+        - if current_user.admin? or store_owner?(store)
+          = button_to "Delete product", store_product_path(store, product), method: :delete
