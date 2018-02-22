@@ -8,3 +8,4 @@ Rails.application.config.assets.paths << Rails.root.join('node_modules')
 ##################################################################
 Rails.application.config.assets.precompile += %w( maps.js )
 Rails.application.config.assets.precompile += %w( map_to_pre_order.js )
+Rails.application.config.assets.precompile += %w( admin.js admin.css.scss )

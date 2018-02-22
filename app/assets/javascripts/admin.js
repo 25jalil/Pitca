@@ -9,7 +9,7 @@
 //= require moment
 //= require fullcalendar
 //= require bootstrap-datepicker
-//= require_tree ./application
+//= require_tree ./admin
 var dateToday = new Date(); 
 $(function() {
     $('input.datepicker').data({behaviour: "datepicker"}).datepicker({
