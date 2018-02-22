@@ -3,5 +3,5 @@ class Menu < ApplicationRecord
   belongs_to :user
   belongs_to :store
   validates_associated :products
-  validates :menu_date, uniqueness: true
+  validates :menu_date, presence: true, uniqueness: true
 end

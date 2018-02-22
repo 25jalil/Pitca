@@ -5,10 +5,15 @@ class CartsController < ApplicationController
   before_action :initialize_cart, only: [:create]
   expose :product
 
+  
   def create
     return unless product
-    result = cart_create(session[:cart], product)
-    session[:cart] = result
+    if session[:cart].keys.include?(product.category.to_s)
+      flash[:notice] = "You have already selected food from the #{product.category} category"
+    else
+      result = cart_create(session[:cart], product)
+      session[:cart] = result 
+    end
     redirect_to request.referrer || root_path
   end
 

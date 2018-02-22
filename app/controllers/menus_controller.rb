@@ -31,8 +31,8 @@ class MenusController < ApplicationController
 
   def show
     @store = params[:store_id]
-    menu_id = params[:id]
-    @products = Product.products_menu(menu_id)  
+    @menu_id = params[:id]
+    @products = Product.products_menu(@menu_id)  
   end
 
 

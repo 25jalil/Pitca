@@ -1,5 +1,8 @@
 .store_wrapper.store_line
+	- if current_user.admin? or store_owner_id?(@store)
+    = button_to "Delete menu", store_menu_path(@menu_id), method: :delete
 	- @products.each do |product|
+	  - Rails.logger.debug("My object: #{product.id}")
 	  .margin_content
 	    = image(product)
 	    .products
@@ -16,6 +19,4 @@
 	      br
 	      #button
 	        = button_to "add to cart", carts_path(id: product)
-	        br
-	        - if current_user.admin? or store_owner_id?(@store)
-	          = button_to "Delete product", store_product_path(@store, product), method: :delete
+	        

@@ -31,7 +31,6 @@ class StoresController < ApplicationController
       marker.lat point.latitude
       marker.lng point.longitude
     end
-    Rails.logger.debug("#{$hash}")
     session[:sender_coordinates] = store.geocode
     session[:price_to_km] = store.cost_of_shipping
     session[:current_store] = store.id
