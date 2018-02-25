@@ -5,10 +5,10 @@
     .buttons
       - if current_user.admin?
         button.button
-          = link_to "User", root_path
+          = link_to "Orders", admin_all_days_path
       - if current_user.admin?
           button.button
-            = link_to "Users", users_path
+            = link_to "Users", admin_users_path
       button.button
         = link_to "My orders", orders_path
       - if current_user.admin? || current_user.seller?

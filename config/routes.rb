@@ -17,7 +17,10 @@ Rails.application.routes.draw do
   resources :orders, only: [:index, :create, :show, :destroy]
   get :recipient_adress, to: "orders#recipient_adress"
   post :pre_order, to: "orders#pre_order"
+  
   namespace :admin do
     get :users, to: "monitorings#index"
+    get :all_days, to: "monitorings#all_days"
+    get :all_orders, to: "monitorings#all_orders"
   end
 end

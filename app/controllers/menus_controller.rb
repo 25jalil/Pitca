@@ -3,10 +3,8 @@ class MenusController < ApplicationController
   
   expose :menu
   
-  
   def index
     @menus = Menu.all
-    Rails.logger.debug("My object: #{@menus.inspect}")
   end
 
   def create

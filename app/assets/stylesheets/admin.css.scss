@@ -46,17 +46,6 @@ p {
   }  
 }
 
-#calendar {
-  float: left;
-  background: #a0d3d3;
-  width: 450px;
-  height: 350px;
-  margin-right: 40px;
-  .fc-bg {
-    background: #a0d3d3;
-  }
-}
-
 #map_to_pre_order{
   width: 1000px;
   height: 300px;
@@ -81,4 +70,14 @@ p {
 .checkbox img {
   width: 100px;
   height: 100px;
+}
+#admin_calendar {
+  z-index: 0;
+  background: #a0d3d3;
+  width: 900px;
+  height: 706px;
+  margin-right: 40px;
+  .fc-bg {
+    display: none;
+  }
 }
