@@ -22,5 +22,6 @@ Rails.application.routes.draw do
     get :users, to: "monitorings#index"
     get :all_days, to: "monitorings#all_days"
     get :all_orders, to: "monitorings#all_orders"
+    get :order, to: "monitorings#order"
   end
 end

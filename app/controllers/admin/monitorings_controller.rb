@@ -11,9 +11,15 @@ class Admin::MonitoringsController < ApplicationController
   end
   
   def all_orders
-    @menus = Menu.all
+    @orders = Order.all
   end
 
   def all_days
+  end
+
+  def order
+    order = Order.includes(:products_orders).where(id: params[:id])
+    products_order = order.last.products_orders
+    render component: 'Admin_order', props: { products_order: products_order, orders_user: order }
   end
 end  

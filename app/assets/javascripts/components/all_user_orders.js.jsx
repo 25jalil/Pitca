@@ -11,8 +11,6 @@ var All_user_orders = React.createClass({
       return order.id != item.id;
     });
     this.replaceState({orders_user: orderList});
-    console.log(this.props.orders_user)
-    console.log(this.state.orders_user)
   },  
   
   render: function() {

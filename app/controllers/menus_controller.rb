@@ -19,6 +19,17 @@ class MenusController < ApplicationController
   def new
   end
 
+  def edit
+  end
+
+  def update
+    if menu.update_attributes(menu_params)
+      redirect_to store_path(params[:store_id]), notice: "Menu Updated"
+    else
+      redirect_to store_path(params[:store_id]), notice: "Unable to update menu"
+    end
+  end
+
   def destroy
     if menu.destroy
       redirect_to root_path, notice: "Menu deleted!"

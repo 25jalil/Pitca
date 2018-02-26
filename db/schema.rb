@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20180220185112) do
+ActiveRecord::Schema.define(version: 20180227103922) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -28,6 +28,7 @@ ActiveRecord::Schema.define(version: 20180220185112) do
   create_table "menus_products", force: :cascade do |t|
     t.bigint "menu_id"
     t.bigint "product_id"
+    t.index ["menu_id", "product_id"], name: "index_menus_products_on_menu_id_and_product_id", unique: true
     t.index ["menu_id"], name: "index_menus_products_on_menu_id"
     t.index ["product_id"], name: "index_menus_products_on_product_id"
   end

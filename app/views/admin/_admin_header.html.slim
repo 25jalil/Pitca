@@ -1,16 +1,12 @@
 .header
   - if user_signed_in?
-    #content
-      = link_to "Stores", stores_path
     .buttons
       - if current_user.admin?
         button.button
           = link_to "Orders", admin_all_days_path
       - if current_user.admin?
-          button.button
-            = link_to "Users", admin_users_path
-      button.button
-        = link_to "My orders", orders_path
+        button.button
+          = link_to "Users", admin_users_path
       - if current_user.admin? || current_user.seller?
         button.button
           = link_to "New Store", new_store_path
