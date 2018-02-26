@@ -23,7 +23,6 @@
   - if current_user.admin? or store_owner?(store)
     = render "products/form"
 javascript:
-  App.currentUserData = #{{current_user.to_json}};
   var mapOptions = {
       disableDefaultUI: true,
       scrollwheel: false,
