@@ -11,7 +11,7 @@ class Admin::MonitoringsController < ApplicationController
   end
   
   def all_orders
-    @orders = Order.all
+    @orders = Order.includes(:user).all
   end
 
   def all_days
