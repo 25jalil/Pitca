@@ -19,6 +19,7 @@ Rails.application.routes.draw do
   post :pre_order, to: "orders#pre_order"
   
   namespace :admin do
+    resources :stores, only: [:index, :show]
     get :users, to: "monitorings#index"
     get :all_days, to: "monitorings#all_days"
     get :all_orders, to: "monitorings#all_orders"

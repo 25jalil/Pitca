@@ -67,10 +67,12 @@ p {
     background-color: #31BEC3;
   }
 }
+
 .checkbox img {
   width: 100px;
   height: 100px;
 }
+
 #admin_calendar {
   z-index: 0;
   background: #a0d3d3;
@@ -79,5 +81,16 @@ p {
   margin-right: 40px;
   .fc-bg {
     display: none;
+  }
+}
+
+#admin_menu_calendar {
+  float: left;
+  background: #a0d3d3;
+  width: 450px;
+  height: 350px;
+  margin-right: 40px;
+  .fc-bg {
+    background: #a0d3d3;
   }
 }

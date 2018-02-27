@@ -1,0 +1,9 @@
+- stores.each do |store|
+  div.store_wrapper
+    .store_line
+      h1.title
+        = link_to store.company, admin_store_path(store)
+        br
+        br
+        = button_to "destroy store", store_path(store), method: :delete
+
