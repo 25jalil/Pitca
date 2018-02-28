@@ -1,23 +1,23 @@
 .store_wrapper.store_line
-	- if current_user.admin? or store_owner_id?(@store)
+  - if current_user.admin? or store_owner_id?(@store)
     = button_to "Delete menu", store_menu_path(@menu_id), method: :delete
     br
     = button_to "Edit menu", edit_store_menu_path(@menu_id), method: :get
-	- @products.each do |product|
-	  .margin_content
-	    = image(product)
-	    .products
-	      #name
-	        = product.name
-	      #description
-	        = product.description
-	      br
-	      #money
-	        | Price:
-	        '
-	        = product.price
-	        |  *The price excluding shipping.
-	      br
-	      #button
-	        = button_to "add to cart", carts_path(id: product)
-	        
+  - @products.each do |product|
+  	- Rails.logger.debug("object#{product.id}")
+    .margin_content
+  	  = image(product)
+  	  .products
+  	    #name
+  	      = product.name
+  	    #description
+  	      = product.description
+  	    br
+  	    #money
+  	      | Price:
+  	      '
+  	      = product.price
+  	      |  *The price excluding shipping.
+  	    br
+  	    #button
+  	      = button_to "add to cart", carts_path(id: product)

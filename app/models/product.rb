@@ -10,6 +10,6 @@ class Product < ApplicationRecord
   validates  :category, presence:true
 
   scope :products_menu, -> (menu_id) do 
-  	find_by_sql("SELECT * FROM products INNER JOIN menus_products ON products.id = menus_products.product_id WHERE menus_products.menu_id = menu_id") 
+  	find_by_sql("SELECT *, products.id FROM products INNER JOIN menus_products ON products.id = menus_products.product_id WHERE menus_products.menu_id = menu_id") 
   end
 end
