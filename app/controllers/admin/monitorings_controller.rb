@@ -1,5 +1,6 @@
 class Admin::MonitoringsController < ApplicationController
   layout "admin"
+  include Admin::MonitoringsHelper
 
   before_action :authenticate_user!
   
@@ -29,7 +30,7 @@ class Admin::MonitoringsController < ApplicationController
 
   def menu_info
     @store = params[:store_id]
-    @menu_id = params[:id]
+    @menu = Menu.find(params[:id])
     @products = Product.products_menu(@menu_id)
   end
 end  
