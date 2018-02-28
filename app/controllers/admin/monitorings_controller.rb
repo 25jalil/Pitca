@@ -22,4 +22,14 @@ class Admin::MonitoringsController < ApplicationController
     products_order = order.last.products_orders
     render component: 'Admin_order', props: { products_order: products_order, orders_user: order }
   end
+
+  def menus
+    @menus = Menu.all
+  end
+
+  def menu_info
+    @store = params[:store_id]
+    @menu_id = params[:id]
+    @products = Product.products_menu(@menu_id)
+  end
 end  
