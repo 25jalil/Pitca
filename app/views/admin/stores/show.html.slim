@@ -2,9 +2,13 @@
   h5 
     = button_to "Create menu", new_store_menu_path(store), method: :get
   br
-  #admin_menu_calendar
-  #map
+  #admin_calendar
   br
+  br
+  br
+  br
+  br
+
   h1
     |Store
     '
@@ -22,17 +26,3 @@
   = render partial: "products/products_store", locals: { products: store_products, store: store }
   - if current_user.admin? or store_owner?(store)
     = render "products/form"
-javascript:
-  var mapOptions = {
-      disableDefaultUI: true,
-      scrollwheel: false,
-      zoomControl: true,
-      streetViewControl: false,
-  };
-  handler = Gmaps.build('Google');
-  handler.buildMap({ provider: mapOptions, internal: {id: 'map'}}, function(){
-    markers = handler.addMarkers(#{raw @hash.to_json});
-    handler.bounds.extendWith(markers);
-    handler.fitMapToBounds();
-    handler.getMap().setZoom(12);
-  });
