@@ -22,6 +22,7 @@ Rails.application.routes.draw do
     resources :stores, only: [:index, :show] do
       get :menu_info, to: 'monitorings#menu_info'
     end  
+    get :orders_day, to: 'monitorings#orders_day'
     get :users, to: "monitorings#index"
     get :all_days, to: "monitorings#all_days"
     get :all_orders, to: "monitorings#all_orders"

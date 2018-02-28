@@ -2,21 +2,22 @@ class Admin::StoresController < ApplicationController
   layout "admin"
 
   before_action :authenticate_user!
-  
+  before_action :initialize_session, only: :show
 
+  expose :store
   expose :stores, ->{ Store.all.order('created_at DESC') }
   expose :store_products, ->{ store.products }
-  expose :store
-  expose :store_create, ->{ current_user.stores.build(store_params) }
-  expose :marker, -> { Store.find(params[:id]).to_gmaps4rails}
   
   def index
+    session[:store_id] = nil
   end
 
   def show
-    @hash = Gmaps4rails.build_markers(store) do |point, marker|
-      marker.lat point.latitude
-      marker.lng point.longitude
-    end
+  end
+
+  private
+
+  def initialize_session
+    session[:store_id] = params[:id] 
   end
 end  

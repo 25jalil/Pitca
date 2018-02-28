@@ -44,7 +44,6 @@ class MenusController < ApplicationController
     @products = Product.products_menu(@menu_id)  
   end
 
-
   private
 
     def menu_params

@@ -12,7 +12,7 @@ class Admin::MonitoringsController < ApplicationController
   end
   
   def all_orders
-    @orders = Order.includes(:user).all
+    @orders = Order.includes(:user).where(store_id: session[:store_id])
   end
 
   def all_days
@@ -25,12 +25,16 @@ class Admin::MonitoringsController < ApplicationController
   end
 
   def menus
-    @menus = Menu.all
+    @menus = Menu.where(store_id: session[:store_id])
   end
 
   def menu_info
     @store = params[:store_id]
     @menu = Menu.find(params[:id])
     @products = Product.products_menu(@menu_id)
+  end
+
+  def orders_day
+    @orders_date = Order.sum_orders(session[:store_id])
   end
 end  

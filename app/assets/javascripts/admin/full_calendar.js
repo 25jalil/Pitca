@@ -2,7 +2,7 @@ $(function () {
   $('#admin_calendar').fullCalendar({
 
     customButtons: {
-      myCustomButton: {
+      firstCustomButton: {
         text: 'Orders store',
         click: function() {
           $('#admin_calendar').fullCalendar('removeEvents');
@@ -10,11 +10,19 @@ $(function () {
           $('#admin_calendar').fullCalendar('rerenderEvents' );
         }
       },
-      allCustomButton: {
+      secondCustomButton: {
         text: 'Menus store',
         click: function() {
           $('#admin_calendar').fullCalendar('removeEvents');
           $('#admin_calendar').fullCalendar('addEventSource', '/admin/menus.json');
+          $('#admin_calendar').fullCalendar('rerenderEvents' );
+        }
+      },
+      thirdCustomButton: {
+        text: 'Orders day',
+        click: function() {
+          $('#admin_calendar').fullCalendar('removeEvents');
+          $('#admin_calendar').fullCalendar('addEventSource', '/admin/orders_day.json');
           $('#admin_calendar').fullCalendar('rerenderEvents' );
         }
       }
@@ -22,11 +30,12 @@ $(function () {
 
     header: {
       left: 'title',
-      right: 'allCustomButton, myCustomButton, today, prev, next'
+      right: 'firstCustomButton, secondCustomButton, thirdCustomButton, today, prev, next'
     },
     selectable: true,
     selectHelper: true,
     editable: true,
+    displayEventTime: false,
     eventLimit: true,
     events: '/admin/all_orders.json',
     eventClick: function(menu) {
