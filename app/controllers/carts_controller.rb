@@ -1,7 +1,7 @@
 class CartsController < ApplicationController
+  before_action :authenticate_user!
   include CartHelper
   include SessionHelper
-  before_action :authenticate_user!
   before_action :initialize_cart, only: [:create]
   expose :product
 

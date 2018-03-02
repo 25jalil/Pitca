@@ -1,25 +1,29 @@
 class MenuPolicy
   attr_reader :current_user, :model
 
-  def initialize(current_user, menu)
+  def initialize(current_user, store)
     @current_user = current_user
-    @menu = menu
+    @store = store
   end
 
-  def index?
-    security
-  end
-
-  def show?
-    security 
+  def edit?
+    @current_user.admin? || store_owner_id?(@store)
   end
 
   def update?
-    security
+    @current_user.admin? || store_owner_id?(@store)
+  end
+
+  def create?
+    @current_user.admin? || store_owner_id?(@store)
+  end
+
+  def update?
+    @current_user.admin? || store_owner_id?(@store)
   end
 
   def destroy?
-    security
+    @current_user.admin? || store_owner_id?(@store)
   end
 
   private 

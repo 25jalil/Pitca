@@ -1,7 +1,8 @@
 .store_wrapper.store_line
-  h5 
-    = button_to "Create menu", new_store_menu_path(store), method: :get
-  br
+  - if current_user.admin? || store_owner_id?(store)
+    h5 
+      = button_to "Create menu", new_store_menu_path(store), method: :get
+      br
   #calendar
   #map
   br

@@ -1,7 +1,9 @@
 class Admin::StoresController < ApplicationController
+  before_action :authenticate_user!
+  before_action :admin_inspect 
+  
   layout "admin"
 
-  before_action :authenticate_user!
   before_action :initialize_session, only: :show
 
   expose :store
@@ -20,4 +22,8 @@ class Admin::StoresController < ApplicationController
   def initialize_session
     session[:store_id] = params[:id] 
   end
+
+  def admin_inspect 
+    redirect_to root_path, notice: "Log in as the administrator!" unless current_user.admin? 
+  end 
 end  

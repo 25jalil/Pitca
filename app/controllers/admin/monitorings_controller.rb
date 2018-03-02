@@ -1,4 +1,6 @@
 class Admin::MonitoringsController < ApplicationController
+  before_action :authenticate_user!
+  before_action :admin_inspect 
   layout "admin"
   include Admin::MonitoringsHelper
 
@@ -37,4 +39,9 @@ class Admin::MonitoringsController < ApplicationController
   def orders_day
     @orders_date = Order.sum_orders(session[:store_id])
   end
+
+  private
+    def admin_inspect 
+      redirect_to root_path, notice: "Log in as the administrator!" unless current_user.admin?
+    end 
 end  

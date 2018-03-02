@@ -4,6 +4,5 @@ class StaticPagesController < ApplicationController
   before_action :clear_session
   
   def root
-  	session[:сart] = nil
   end
 end

@@ -1,7 +1,7 @@
 class OrdersController < ApplicationController
+  before_action :authenticate_user!
   include OrderHelper
   include SessionHelper
-  before_action :authenticate_user!
   before_action :check_session, only: [:pre_order, :recipient_adress]
   
   expose_decorated :orders, ->{ current_user.orders }
@@ -72,7 +72,6 @@ class OrdersController < ApplicationController
     end
   end
 
-  
   private
 
     def check_session

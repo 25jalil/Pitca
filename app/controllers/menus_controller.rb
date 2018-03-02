@@ -1,13 +1,16 @@
 class MenusController < ApplicationController
   before_action :authenticate_user!
-  
+  include StoresHelper
   expose :menu
-  
+  expose :menus
+  expose :store, ->{ Store.find(session[:current_store]) } 
+
   def index
     @menus = Menu.all
   end
 
   def create
+    authorize store
     (params[:menu][:product_ids]).shift
     menu = Menu.create(menu_date: params[:menu][:menu_date], store_id: params[:store_id], user_id: current_user.id)
     (0...(params[:menu][:product_ids]).size).each do |i|
@@ -17,12 +20,15 @@ class MenusController < ApplicationController
   end
 
   def new
+    authorize store
   end
 
   def edit
+    authorize store
   end
 
   def update
+    authorize store
     if menu.update_attributes(menu_params)
       redirect_to store_path(params[:store_id]), notice: "Menu Updated"
     else
@@ -31,6 +37,7 @@ class MenusController < ApplicationController
   end
 
   def destroy
+    authorize store
     if menu.destroy
       redirect_to root_path, notice: "Menu deleted!"
     else
