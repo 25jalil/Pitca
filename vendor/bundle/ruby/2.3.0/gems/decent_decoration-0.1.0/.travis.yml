@@ -1,0 +1,9 @@
+language: ruby
+rvm:
+  - 2.2.2
+  - 2.3.0
+notifications:
+  email:
+    recipients:
+      - pewniak747@gmail.com
+      - bartosz.kopinski@netguru.pl
