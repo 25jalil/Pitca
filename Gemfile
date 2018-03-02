@@ -43,11 +43,6 @@ gem "refile", github: "refile/refile", require: ["refile/rails", "refile/simple_
 gem "refile-mini_magick"
 gem "refile-s3"
 
-git_source(:github) do |repo_name|
-  repo_name = "#{repo_name}/#{repo_name}" unless repo_name.include?("/")
-  "https://github.com/#{repo_name}.git"
-end
-
 group :staging, :production do
 end
 
