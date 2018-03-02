@@ -65,13 +65,6 @@ class OrdersController < ApplicationController
     end
   end
 
-  def destroy
-    Order.find(params[:id]).destroy
-    respond_to do |format|
-      format.json { render :json => {}, :status => :no_content }
-    end
-  end
-
   private
 
     def check_session

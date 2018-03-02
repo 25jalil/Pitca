@@ -1,11 +1,12 @@
 class CartsController < ApplicationController
   before_action :authenticate_user!
+  before_action :initialize_cart, only: [:create]
+  
   include CartHelper
   include SessionHelper
-  before_action :initialize_cart, only: [:create]
+  
   expose :product
 
-  
   def create
     return unless product
     if session[:cart].keys.include?(product.category.to_s)
