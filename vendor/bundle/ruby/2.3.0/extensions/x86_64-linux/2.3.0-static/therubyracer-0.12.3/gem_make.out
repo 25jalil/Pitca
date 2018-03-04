@@ -1,0 +1,47 @@
+current directory: /home/ilnar/ruby_project/Pizza/vendor/bundle/ruby/2.3.0/gems/therubyracer-0.12.3/ext/v8
+/home/ilnar/.rbenv/versions/2.3.4/bin/ruby -r ./siteconf20180304-8771-sh2dy0.rb extconf.rb
+checking for main() in -lpthread... yes
+creating Makefile
+
+To see why this extension failed to compile, please check the mkmf.log which can be found here:
+
+  /home/ilnar/ruby_project/Pizza/vendor/bundle/ruby/2.3.0/extensions/x86_64-linux/2.3.0-static/therubyracer-0.12.3/mkmf.log
+
+current directory: /home/ilnar/ruby_project/Pizza/vendor/bundle/ruby/2.3.0/gems/therubyracer-0.12.3/ext/v8
+make "DESTDIR=" clean
+
+current directory: /home/ilnar/ruby_project/Pizza/vendor/bundle/ruby/2.3.0/gems/therubyracer-0.12.3/ext/v8
+make "DESTDIR="
+compiling function.cc
+compiling invocation.cc
+compiling string.cc
+compiling external.cc
+compiling constants.cc
+compiling backref.cc
+compiling v8.cc
+compiling template.cc
+compiling accessor.cc
+compiling exception.cc
+compiling date.cc
+compiling object.cc
+compiling heap.cc
+compiling gc.cc
+compiling context.cc
+compiling primitive.cc
+compiling message.cc
+compiling script.cc
+compiling rr.cc
+compiling init.cc
+compiling array.cc
+compiling trycatch.cc
+compiling locker.cc
+compiling value.cc
+compiling constraints.cc
+compiling handles.cc
+compiling stack.cc
+compiling signature.cc
+linking shared-object v8/init.so
+
+current directory: /home/ilnar/ruby_project/Pizza/vendor/bundle/ruby/2.3.0/gems/therubyracer-0.12.3/ext/v8
+make "DESTDIR=" install
+/usr/bin/install -c -m 0755 init.so ./.gem.20180304-8771-qq3kqx/v8
