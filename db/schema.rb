@@ -67,7 +67,6 @@ ActiveRecord::Schema.define(version: 20180227103922) do
     t.bigint "order_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.boolean "rendition"
     t.bigint "user_id"
     t.index ["order_id"], name: "index_products_orders_on_order_id"
     t.index ["user_id"], name: "index_products_orders_on_user_id"
@@ -96,13 +95,6 @@ ActiveRecord::Schema.define(version: 20180227103922) do
     t.datetime "last_sign_in_at"
     t.inet "current_sign_in_ip"
     t.inet "last_sign_in_ip"
-    t.string "confirmation_token"
-    t.datetime "confirmed_at"
-    t.datetime "confirmation_sent_at"
-    t.string "unconfirmed_email"
-    t.integer "failed_attempts", default: 0, null: false
-    t.string "unlock_token"
-    t.datetime "locked_at"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.integer "role"

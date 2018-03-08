@@ -6,12 +6,26 @@ defaults: &defaults
   pool: <%= [ENV.fetch("MAX_THREADS", 5), ENV.fetch("DB_POOL", 5)].max %>
 
 development:
-  database: <%= ENV.fetch("DATABASE_NAME", File.basename(Rails.root)) %>_dev
-  <<: *defaults
-
-test:
-  database: <%= ENV.fetch("DATABASE_NAME", File.basename(Rails.root)) %>_test
-  <<: *defaults
+  adapter: postgresql
+  encoding: unicode
+  database: pizza2
+  pool: 5
+  username: ilnar
+  password: password
+  template: template0
+  host: localhost
+  port: 5432
+  
+test: &test
+  adapter: postgresql
+  encoding: unicode
+  database: test_pizza2
+  username: ilnar
+  password: password
+  pool: 5
+  template: template0
+  host: localhost
+  port: 5432
 
 production: &deploy
   <<: *defaults

@@ -57,6 +57,7 @@ group :development, :test do
   gem "byebug"                                    # отладчик для руби
   gem "factory_girl_rails"                        # создает объекты в основном используют для тестирования
   gem "slim_lint", require: false                 # настраиваемый инструмент для slim
+  gem 'faker', :git => 'https://github.com/stympy/faker.git', :branch => 'master'
 end
 
 group :development do
