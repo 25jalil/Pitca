@@ -5,6 +5,7 @@ class User < ApplicationRecord
   has_many :menus, dependent: :destroy
 
   validates_format_of :email,:with => Devise::email_regexp
+  validates :name, presence: true
   validates :role, inclusion: {in: :role}
 
   enum role: {user: 0, seller: 1, admin: 2}
