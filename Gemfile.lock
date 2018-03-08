@@ -1,5 +1,5 @@
 GIT
-  remote: https://github.com/refile/refile.git
+  remote: git://github.com/refile/refile.git
   revision: 0bce2100aecc45af43cd0ddcf2725de90d7a1707
   specs:
     refile (0.6.2)
