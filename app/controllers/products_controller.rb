@@ -8,7 +8,7 @@ class ProductsController < ApplicationController
   def create
     authorize Product
     if product_create.save
-      redirect_to store
+      redirect_to store, notice: "Successfully!"
     else
       redirect_to root_path, alert: "error save"
     end

@@ -1,6 +1,18 @@
 require "rails_helper"
 
 RSpec.describe Store, :type => :model do
+
+  it { should have_many(:products).dependent(:destroy) }
+  it { should have_many(:orders) }
+  it { should have_many(:menus) }
+  it { should belong_to(:user) }
+
+  it { should validate_presence_of(:company) }
+  it { should validate_length_of(:company).is_at_most(40) }
+  it { should validate_presence_of(:address) }
+  it { should validate_presence_of(:cost_of_shipping) }
+
+
   it "checking lines to db" do
     store = FactoryGirl.create(:user_with_store)
     expect(Store.first.company).to eq('Flatsatck')

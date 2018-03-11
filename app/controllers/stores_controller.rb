@@ -19,9 +19,9 @@ class StoresController < ApplicationController
   def create
     authorize Store
     if store_create.save
-      redirect_to store, notice: "Successfully"
+      redirect_to store, notice: "Successfully!"
     else
-      flash[:notice] = "Please enter a valid address!"
+      flash[:notice] = "Please enter a valid data!"
       render 'new'
     end
   end

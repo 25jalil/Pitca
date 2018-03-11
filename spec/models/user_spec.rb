@@ -1,6 +1,13 @@
 require "rails_helper"
 
 RSpec.describe User, :type => :model do
+  
+  it { should have_many(:orders).dependent(:destroy) }
+  it { should have_many(:stores).dependent(:destroy) }
+  it { should have_many(:menus).dependent(:destroy) }
+  it { should validate_presence_of(:name) }
+
+
   it "checking lines to db" do
     user = FactoryGirl.create(:user, :admin)
     expect(User.first.name).to eq("ilnar")
