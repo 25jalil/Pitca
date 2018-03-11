@@ -10,20 +10,24 @@ FactoryGirl.define do
       role 'admin'
     end
 
+    trait :user do
+      role 'user'
+    end
+
     factory :user_with_store do
     	after(:create) do |user|
         create(:store, user: user)
       end
-    end  
+    end    
   end
-
+  
   factory :store do
-  	company { 'Flatsatck' }
+  	company 'Flatsatck' 
     address 'kazan, pushkina 46'
     latitude '55.793719'
     longitude '49.1253406'
     cost_of_shipping 35.0
-  
+
     factory :store_with_product do
       after(:create) do |store|
         create(:product, store: store)
