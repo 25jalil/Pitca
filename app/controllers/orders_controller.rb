@@ -1,13 +1,22 @@
 class OrdersController < ApplicationController
+  before_action :authenticate_user!
   include OrderHelper
   include SessionHelper
-  before_action :authenticate_user!
   before_action :check_session, only: [:pre_order, :recipient_adress]
   
   expose_decorated :orders, ->{ current_user.orders }
   expose_decorated :order
 
   def index
+    orders_user = Order.includes(:products_orders).where(user_id: current_user.id)
+    if orders_user.empty?
+      redirect_to root_path, notice: "No orders"
+    else
+      render component: 'All_user_orders', props: { orders_user: orders_user }
+    end 
+  end
+
+  def show
     orders_user = Order.includes(:products_orders).where(user_id: current_user.id)
     products_order = orders_user.last.products_orders
     render component: 'Orders', props: { products_order: products_order, orders_user: orders_user }
@@ -41,8 +50,6 @@ class OrdersController < ApplicationController
   def pre_order
     order = Order.new(order_params)
     session[:recipient_coordinates] = Geocoder.coordinates(order.recipient_adress)
-    Rails.logger.debug("one #{session[:sender_coordinates]}")
-    Rails.logger.debug("two #{session[:recipient_coordinates]}")
     @distance = Geocoder::Calculations.distance_between(session[:sender_coordinates], session[:recipient_coordinates]).round(1)
     session[:shipping] = @distance * session[:price_to_km]
     @current_order = session[:cart].values
@@ -58,19 +65,6 @@ class OrdersController < ApplicationController
     end
   end
 
-  def destroy
-    Order.find(params[:id]).destroy
-    respond_to do |format|
-      format.json { render :json => {}, :status => :no_content }
-    end
-  end
-
-  def show
-    products_order = order.products_orders
-    orders_user = Order.where(user_id: current_user.id)
-    render component: 'Orders', props: { products_order: products_order, orders_user: orders_user }
-  end
-  
   private
 
     def check_session

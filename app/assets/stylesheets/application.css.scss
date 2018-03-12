@@ -1,18 +1,9 @@
 /*
- * This is a manifest file that'll be compiled into application.css, which will include all the files
- * listed below.
- *
- * Any CSS and SCSS file within this directory, lib/assets/stylesheets, or any plugin's
- * vendor/assets/stylesheets directory can be referenced here using a relative path.
- *
- * You're free to add application-wide styles to this file and they'll appear at the bottom of the
- * compiled file so the styles you add here take precedence over styles defined in any other CSS/SCSS
- * files in this directory. Styles in this file should be added after the last require_* statement.
- * It is generally better to create a new file per style scope.
- *
  *= require normalize-rails
- *= require_tree .
+ *= require fullcalendar
  *= require_self
+ *= require bootstrap-datepicker
+ *= require_tree .
  */
 
 html, body {
@@ -44,9 +35,8 @@ p {
   line-height: 32px;
 }
 #map {
-  width: 1000px;
-  height: 350px;
-  
+  width: 450px;
+  height: 373px;
   img {
     padding:0px;
     border:0px;
@@ -56,7 +46,39 @@ p {
   }  
 }
 
+#calendar {
+  float: left;
+  background: #a0d3d3;
+  width: 450px;
+  height: 350px;
+  margin-right: 40px;
+  .fc-bg {
+    background: #a0d3d3;
+  }
+}
+
 #map_to_pre_order{
   width: 1000px;
   height: 300px;
+}
+
+.fc-bg table tbody tr td {
+  display: none;
+}
+
+.fc-bg table tbody tr {
+  display: none;
+}
+
+.datepicker-days {
+  position: relative ;
+  margin-top: -617px;
+  margin-left: 226px;
+  .table-condensed {
+    background-color: #31BEC3;
+  }
+}
+.checkbox img {
+  width: 100px;
+  height: 100px;
 }

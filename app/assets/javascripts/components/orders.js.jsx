@@ -29,8 +29,7 @@ var Orders = React.createClass({
       );
     });
 		return (
-      <div>         
-        {orders_user}
+      <div className="navbar">         
         <table>
           <thead>
             <tr>
@@ -38,7 +37,6 @@ var Orders = React.createClass({
               <th>Quantity</th>
               <th>Price</th>
               <th>Total price</th>
-              <th>Actions</th>
             </tr>
           </thead>
           <tbody>

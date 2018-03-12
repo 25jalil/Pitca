@@ -19,9 +19,9 @@ class StoresController < ApplicationController
   def create
     authorize Store
     if store_create.save
-      redirect_to store, notice: "Successfully"
+      redirect_to store, notice: "Successfully!"
     else
-      flash[:notice] = "Please enter a valid address!"
+      flash[:notice] = "Please enter a valid data!"
       render 'new'
     end
   end
@@ -31,7 +31,6 @@ class StoresController < ApplicationController
       marker.lat point.latitude
       marker.lng point.longitude
     end
-    Rails.logger.debug("#{$hash}")
     session[:sender_coordinates] = store.geocode
     session[:price_to_km] = store.cost_of_shipping
     session[:current_store] = store.id

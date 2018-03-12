@@ -8,7 +8,7 @@ class ProductsController < ApplicationController
   def create
     authorize Product
     if product_create.save
-      redirect_to store
+      redirect_to store, notice: "Successfully!"
     else
       redirect_to root_path, alert: "error save"
     end
@@ -23,10 +23,9 @@ class ProductsController < ApplicationController
     end
   end
 
-
   private
 
     def product_params
-      params.require(:product).permit(:name, :description, :price, :product_image)
+      params.require(:product).permit(:name, :menu_date, :description, :price, :product_image, :category)
     end
 end

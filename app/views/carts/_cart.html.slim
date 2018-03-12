@@ -1,16 +1,17 @@
-table
-  thead
-    tr
-      th = "Name"
-      th = "Amount"
-      th = "Price"
-  tbody
-  - session[:cart].each do |product|
-    - product = product.flatten
-    tr
-      td = product[1]["product_name"]
-      td = product[1]["amount"]
-      td = calculated_price_product(product)
+.navbar
+  table
+    thead
+      tr
+        th = "Name"
+        th = "Amount"
+        th = "Price"
+    tbody
+    - session[:cart].each do |product|
+      - product = product.flatten
+      tr
+        td = product[1]["product_name"]
+        td = product[1]["amount"]
+        td = calculated_price_product(product)
 .floatlf
   #money
     = button_to "Clear cart", delete_cart_path, method: :get

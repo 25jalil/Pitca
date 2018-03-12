@@ -1,0 +1,19 @@
+doctype html
+html 
+  head
+    title Pitca
+    = stylesheet_link_tag 'admin', media: 'all', 'data-turbolinks-track' => true
+    = csrf_meta_tags
+    script(src="//maps.google.com/maps/api/js?key=#{ENV['GMAPS_KEY']}")
+    script(src="//cdn.rawgit.com/mahnunchik/markerclustererplus/master/dist/markerclusterer.min.js")
+    script(src="//cdn.rawgit.com/printercu/google-maps-utility-library-v3-read-only/master/infobox/src/infobox_packed.js" type="text/javascript")
+    = javascript_include_tag 'admin', 'data-turbolinks-track' => true
+  body
+    .header
+      = render "admin/admin_header"
+    .content
+      #sidebar
+        = render "admin/admin_sidebar"
+      = render "admin/admin_messages"
+      #store_content
+        = yield

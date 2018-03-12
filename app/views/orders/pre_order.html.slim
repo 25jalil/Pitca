@@ -2,21 +2,22 @@
 .order	
 	#map_to_pre_order
 	br
-	table
-	  thead
-	    tr
-        th.radius_left_th = "Product name"   
-        th = "Price"   
-        th = "Amount"   
-        th.radius_right_th = "Total price"
-		tbody
-		  - @current_order.each do |products|
+	.navbar
+		table
+		  thead
 		    tr
-				  td = products["product_name"]
-				  td = products["product_price"]
-				  td = products["amount"]
-				  td = value = calculated_order_price(products["product_price"], products["amount"])
-	        - price_products += value   
+	        th.radius_left_th = "Product name"   
+	        th = "Price"   
+	        th = "Amount"   
+	        th.radius_right_th = "Total price"
+			tbody
+			  - @current_order.each do |products|
+			    tr
+					  td = products["product_name"]
+					  td = products["product_price"]
+					  td = products["amount"]
+					  td = value = calculated_order_price(products["product_price"], products["amount"])
+		        - price_products += value   
 	#footer_text1
 	  | Total price products:
 	  '

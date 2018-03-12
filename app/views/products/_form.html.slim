@@ -6,4 +6,6 @@
   br
   = f.input :price, required: false,  label: false, placeholder: "Price", input_html: { class: 'my_class' }
   br
+  = f.input :category, required: false, as: :radio_buttons, label: false, collection: [['first course', 'first course'], ['main course', 'main course'], ['drink', 'drink']], label_method: :second, value_method: :first 
+  br
   = f.button :submit

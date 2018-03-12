@@ -1,0 +1,87 @@
+/*
+ *= require normalize-rails
+ *= require fullcalendar
+ *= require_self
+ *= require bootstrap-datepicker
+ *= require_tree .
+ */
+
+html, body {
+  font-family: 'Raleway', sans-serif;
+}
+
+h2, h3, h4, h5, h6 {
+  font-weight: 500;
+}
+
+h1 {
+  color: #7c795d;
+  font-family: 'Trocchi', serif;
+  font-size: 45px;
+  font-weight: normal;
+  margin: 0;
+}
+
+a {
+  text-decoration: none;
+  color: inherit;
+}
+
+p {
+  color: #7a7c7f;
+  font-family: 'Raleway',sans-serif;
+  font-size: 18px;
+  font-weight: 500;
+  line-height: 32px;
+}
+#map {
+  width: 450px;
+  height: 373px;
+  img {
+    padding:0px;
+    border:0px;
+    border-radius: 0px;
+    background-color: white;
+    line-height: 0px;
+  }  
+}
+
+#map_to_pre_order{
+  width: 1000px;
+  height: 300px;
+}
+
+.fc-bg table tbody tr td {
+  display: none;
+}
+
+.fc-bg table tbody tr {
+  display: none;
+}
+
+.datepicker-days {
+  position: relative ;
+  margin-top: -617px;
+  margin-left: 226px;
+  .table-condensed {
+    background-color: #31BEC3;
+  }
+}
+.checkbox img {
+  width: 100px;
+  height: 100px;
+}
+#admin_calendar {
+  z-index: 0;
+  background: #a0d3d3;
+  width: 960px;
+  height: 706px;
+  margin-right: 40px;
+  .fc-bg {
+    background: #a0d3d3;
+  }
+  .fc-today {
+    border: none !important;
+    font-weight: bold;
+  }
+}

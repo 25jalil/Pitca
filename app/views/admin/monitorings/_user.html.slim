@@ -1,0 +1,8 @@
+.users
+  table
+		tr	
+			td = link_to user.email, user
+			= simple_form_for user do |f|
+				td = f.input :role, label: false
+				td = f.button :submit
+		    td = button_to "Delete user", user_path(user), method: :delete if user != current_user  

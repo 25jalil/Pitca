@@ -7,7 +7,8 @@ gem "pg"                                          # для соеденения 
 # assets
 gem "coffee-rails"                                # для чтения coffee файлов
 gem "sass-rails", "~> 5.0.0", ">= 5.0.6"          # стандартная библиотека sass
-gem "uglifier", ">= 2.7.2"                        # стандартная библиотека
+gem "uglifier", ">= 2.7.2"
+gem 'jbuilder', '~> 2.0'                        # стандартная библиотека
 
 source "https://rails-assets.org" do
   gem "rails-assets-jquery-ujs"                   # подключает jquery
@@ -15,8 +16,6 @@ source "https://rails-assets.org" do
 end
 
 # views
-gem "active_link_to"                              # отображает ссылку, которую открыл посетитель
-gem "metamagic"                                   # плагин для создания метатегов
 gem "simple_form"                                 # плагин для создания понятных инпутов
 gem "slim"                                        # упрощает код html с помощью иерархической структуры, аналог haml
 gem "normalize-rails"
@@ -24,7 +23,6 @@ gem "enum_help"
 
 # all other gems
 gem "devise"                                      # гем для аутентификации пользователя
-gem "google-analytics-rails"                      # для анализа запросов на вебсайт
 gem "puma"                                        # вебсервер для рейлс
 gem "pundit"                                      # для создания системы авторизации                                                 
 gem "draper" 
@@ -34,14 +32,16 @@ gem "geocoder"
 gem "gmaps4rails"
 gem "turbolinks"
 gem "therubyracer"
-gem "responders"
 gem "react-rails"
 gem "momentjs-rails"
 gem "jquery-rails"
+gem "fullcalendar-rails"
+gem "bootstrap-datepicker-rails"
 
 gem "listen", "~> 3.1.5"
 gem "refile", github: "refile/refile", require: ["refile/rails", "refile/simple_form"]
 gem "refile-mini_magick"
+gem "refile-s3"
 
 group :staging, :production do
 end
@@ -57,6 +57,7 @@ group :development, :test do
   gem "byebug"                                    # отладчик для руби
   gem "factory_girl_rails"                        # создает объекты в основном используют для тестирования
   gem "slim_lint", require: false                 # настраиваемый инструмент для slim
+  gem 'faker', :git => 'https://github.com/stympy/faker.git', :branch => 'master'
 end
 
 group :development do
